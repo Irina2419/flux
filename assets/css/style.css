@@ -2,7 +2,6 @@
     font-family: 'CelebriSans';
     src: url('../fonts/CelebriSans-Bold.woff2') format('woff2'),
          url('../fonts/CelebriSans-Bold.woff') format('woff');
-    font-weight: bold;
     font-style: normal;
     font-display: swap;
   }
@@ -124,6 +123,7 @@
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Roboto', sans-serif;
     color: #fff;
   }
   
@@ -147,6 +147,7 @@
     color: #fff;
     font-size: 1.2rem;
     font-weight: normal;
+    font-family: 'Roboto', sans-serif;
   }
   
   .footer-section p,
@@ -156,6 +157,7 @@
     text-decoration: none;
     color: #fff;
     transition: color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
   }
   
   .footer-section a:hover {
