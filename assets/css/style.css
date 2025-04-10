@@ -1,54 +1,56 @@
 @font-face {
     font-family: 'CelebriSans';
     src: url('../fonts/CelebriSans-Bold.woff2') format('woff2'),
-         url('../fonts/CelebriSans-Bold.woff') format('woff');
+        url('../fonts/CelebriSans-Bold.woff') format('woff');
     font-style: normal;
     font-display: swap;
-  }
-  
-  body {
-    font-family: 'CelebriSans', sans-serif;
-  }
-  
-  #navbar {
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Flow+Circular&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: 'Flow Circular', sans-serif;
+}
+
+#navbar {
     background-color: transparent !important;
     transition: background-color 0.3s ease;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-  }
-  
-  #navbar .nav-link {
+}
+
+#navbar .nav-link {
     color: #084913 !important;
     font-family: 'CelebriSans', sans-serif;
     font-weight: bold;
     margin-left: 0.1.5rem;
     margin-right: 0.1.5rem;
     transition: color 0.3s ease;
-  }
-  
-  #navbar .nav-link:hover {
+}
+
+#navbar .nav-link:hover {
     color: #7ba075 !important;
 }
-  
-  #navbar .company-name {
+
+#navbar .company-name {
     font-family: 'CelebriSans', sans-serif;
     font-weight: bold;
     color: #000 !important;
     font-size: 1.5rem;
-  }
-  
-  .navbar-toggler {
+}
+
+.navbar-toggler {
     border-color: rgba(0, 0, 0, 0.3);
-  }
-  
-  .navbar-toggler-icon {
+}
+
+.navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
-  
-  .hero-section {
+}
+
+.hero-section {
     height: 100vh;
     width: 100%;
-    background-color: #f0f0f0;
+    background-color: rgba(37, 109, 32, 0.6);
     background-image: url('/assets/images/hero5.jpg');
     background-attachment: fixed;
     background-position: center 20%;
@@ -58,64 +60,64 @@
     align-items: center;
     justify-content: center;
     position: relative;
-  }
-  
-  .hero-content {
+}
+
+.hero-content {
     text-align: center;
     color: #084913;
     z-index: 1;
-  }
-  
-  .main-content {
+}
+
+.main-content {
     background-color: rgba(37, 109, 32, 0.6);
     color: #084913;
-  }
-  
-  .main-content h2,
-  .main-content h3 {
+}
+
+.main-content h2,
+.main-content h3 {
     color: #084913 !important;
-  }
-  
-  .main-heading {
+}
+
+.main-heading {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 1rem;
     color: #084913;
-  }
-  
-  .main-intro-paragraph {
+}
+
+.main-intro-paragraph {
     text-align: center;
     font-size: 2rem;
     line-height: 1.4;
     color: #084913;
-  }
-  
-  .row {
+}
+
+.row {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .row div {
+}
+
+.row div {
     flex: 0 0 25%;
     max-width: 25%;
     padding: 10px;
     box-sizing: border-box;
     text-align: center;
-  }
-  
-  .row p {
+}
+
+.row p {
     margin: 0 auto;
     display: block;
     font-weight: bold !important;
-  }
-  
-  .footer-section {
-    height: 33.33vh;
+}
+
+.footer-section {
+    height: 27vh;
     width: 100%;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     text-align: center;
     background-image: url('/assets/images/hero5.jpg');
@@ -125,9 +127,9 @@
     background-size: cover;
     font-family: 'Roboto', sans-serif;
     color: #fff;
-  }
-  
-  .footer-section::before {
+}
+
+.footer-section::before {
     content: "";
     position: absolute;
     top: 0;
@@ -136,30 +138,30 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 0;
-  }
-  
-  .footer-content {
+}
+
+.footer-content {
     position: relative;
     z-index: 1;
-  }
-  
-  .footer-section h3 {
+}
+
+.footer-section h3 {
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: normal;
     font-family: 'Roboto', sans-serif;
-  }
-  
-  .footer-section p,
-  .footer-section a {
-    font-size: 0.9rem;
+}
+
+.footer-section p,
+.footer-section a {
+    font-size: 0.7rem;
     font-weight: normal;
     text-decoration: none;
     color: #fff;
     transition: color 0.3s ease;
     font-family: 'Roboto', sans-serif;
-  }
-  
-  .footer-section a:hover {
-    color: var(--highlight-color);
-  }
+}
+
+.footer-section a:hover {
+    opacity: 0.7;
+}
