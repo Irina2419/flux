@@ -1,3 +1,5 @@
+
+
 @font-face {
     font-family: 'CelebriSans';
     src: url('../fonts/CelebriSans-Bold.woff2') format('woff2'),
@@ -70,6 +72,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
@@ -105,25 +108,24 @@ body {
 }
 
 .row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    display: flex; /* Crucial for flexbox layout */
+    flex-wrap: wrap; /* Crucial for responsiveness */
 }
 
 .row > div {
-    flex: 0 0 auto;
-    max-width: none;
-    width: auto;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 10px;
+    box-sizing: border-box; /* Include padding in width */
+    padding: 10px; /* Your padding */
+    text-align: center; 
 }
 
 .row p {
-    margin: 0 auto;
-    display: block;
-    font-weight: bold !important;
+    word-wrap: break-word; /* Prevent text overflow */
+}
+
+.box {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border: 1px solid #ccc;
 }
 
 
@@ -156,6 +158,13 @@ body {
     }
 }
 
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .google-business-icon {
+        width: 120px; /* Larger size on tablets and desktops */
+    }
+}
+
 /* Google My Business Icon Styles */
 .google-business-icon {
     display: block; /* Ensures proper sizing */
@@ -163,13 +172,6 @@ body {
     width: 80px; /* Initial icon size */
     margin: 0 auto; /* Center within its container (if needed) */
     transition: width 0.2s ease-in-out; /* Smooth size transition */
-}
-
-/* Media query for larger screens */
-@media (min-width: 768px) {
-    .google-business-icon {
-        width: 120px; /* Larger size on tablets and desktops */
-    }
 }
 
 .footer-section {
@@ -209,7 +211,7 @@ body {
 }
 
 .footer-section h3 {
-    color: #f0f0f0;
+    color: #cccccc;
     font-size: 1.1rem;
     font-weight: normal;
     font-family: 'Roboto', sans-serif;
@@ -220,7 +222,7 @@ body {
     font-size: 1rem;
     font-weight: normal;
     text-decoration: none;
-    color: #f0f0f0;
+    color: #cccccc;
     transition: color 0.3s ease;
     font-family: 'Roboto', sans-serif;
 }
