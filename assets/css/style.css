@@ -75,6 +75,10 @@ body {
     overflow: hidden;
 }
 
+.underfloor-page .hero-section {
+    background-image: url('../images/second_page_image.png');
+}
+
 .hero-content {
     text-align: center;
     color: #084913;
@@ -220,6 +224,10 @@ body {
     background-size: cover;
     font-family: 'Roboto', sans-serif;
     color: #fff;
+}
+
+.underfloor-footer {
+    background-image: url('../images/second_page_image.png');
 }
 
 .footer-section::before {
