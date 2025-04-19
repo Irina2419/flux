@@ -225,6 +225,11 @@ body.underfloor-page main h2 {
     }
 }
 
+.map-container iframe {
+    height: 450px; /* Specific height */
+    width: 100%;
+}
+
 .footer-section {
     height: auto;
     min-height: 35vh;
