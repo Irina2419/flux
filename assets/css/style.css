@@ -165,13 +165,41 @@ body {
     }
 }
 
-/* Google My Business Icon Styles */
+/* Google My Business Section Styles */
+.google-section {
+    text-align: center; /* Center the entire section */
+}
+
+.google-section a {
+    display: inline-flex; /* Display the link as inline-flex */
+    align-items: center; /* Vertically align icon in the link */
+}
+
 .google-business-icon {
-    display: block; /* Ensures proper sizing */
-    height: auto; /* Maintain aspect ratio */
-    width: 80px; /* Initial icon size */
-    margin: 0 auto; /* Center within its container (if needed) */
-    transition: width 0.2s ease-in-out; /* Smooth size transition */
+    display: block;
+    height: 50px; /* Adjust as needed */
+    width: auto;
+    transition: width 0.2s ease-in-out;
+    margin-left: 0.5rem; /* Changed to margin-left */
+}
+
+.google-text {
+    font-size: 1rem; /* Adjust text size */
+    color: #333; /* Adjust text color */
+    margin-right: 0.5rem; /* Space between text and arrow */
+    font-weight: bold;
+}
+
+.arrow-icon {
+    height: 1rem; /* Adjust arrow size */
+    width: auto;
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .google-business-icon {
+        height: 60px; /* Larger size on tablets and desktops */
+    }
 }
 
 .footer-section {
