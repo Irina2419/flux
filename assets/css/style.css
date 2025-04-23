@@ -1,12 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @font-face {
     font-family: 'CelebriSans';
-    src: url('../fonts/CelebriSans-Bold.woff2') format('woff2'),
-        url('../fonts/CelebriSans-Bold.woff') format('woff');
+    src: url('../fonts/CelebriSans-Bold.woff2') format('woff2');
     font-style: normal;
     font-display: swap;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Flow+Circular&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
 
 :root {
     --primary-text-color: #222;
@@ -22,7 +28,7 @@
 }
 
 body {
-    font-family: 'Flow Circular', sans-serif;
+    font-family: 'Montserrat', 'Roboto', sans-serif;
 }
 
 #navbar {
@@ -106,7 +112,8 @@ body {
 
 .main-content h2 {
     font-size: 1.5rem;
-    padding-top: 1rem;   /* Space above */
+    padding-top: 1rem;
+    /* Space above */
     padding-bottom: 1rem;
     text-align: center;
 }
