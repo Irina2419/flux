@@ -62,11 +62,22 @@ body {
 }
 
 .navbar-toggler {
-    border-color: transparent;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
 }
 
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    border: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 .hero-section {
@@ -112,9 +123,8 @@ body {
 
 .main-content h2 {
     font-size: 1.5rem;
-    padding-top: 1rem;
-    /* Space above */
-    padding-bottom: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     text-align: center;
 }
 
@@ -198,6 +208,12 @@ body {
     max-width: 100%;
 }
 
+.feature-icon {
+    color: var(--primary-text-color);
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    vertical-align: middle;
+  }
 
 /* Google My Business Section Styles */
 .google-section {
@@ -316,3 +332,10 @@ body {
 .footer-section a:hover {
     opacity: 0.7;
 }
+
+.footer-icon {
+    color: var(--footer-white);
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
