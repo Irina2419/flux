@@ -209,25 +209,15 @@
 
     <script>
       const navbar = document.getElementById("navbar");
-      const navLinks = document.querySelector(".navbar-nav");
-      const navToggler = document.querySelector(".navbar-toggler");
-
-      let lastScrollTop = 0;
 
       window.addEventListener("scroll", function () {
         const currentScroll = window.scrollY;
 
-        if (currentScroll > lastScrollTop) {
-          // Scrolling down
-          navLinks.classList.add("nav-hide");
-          navToggler.classList.add("nav-hide");
+        if (currentScroll > 100) {
+          navbar.classList.add("nav-hide");
         } else {
-          // Scrolling up
-          navLinks.classList.remove("nav-hide");
-          navToggler.classList.remove("nav-hide");
+          navbar.classList.remove("nav-hide");
         }
-
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
       });
     </script>
   </body>

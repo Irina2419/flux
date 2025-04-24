@@ -57,11 +57,10 @@ body {
     width: 100%;
 }
 
-.nav-hide {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
+#navbar.nav-hide {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
 
 /* Navigation link styles */
 #navbar .nav-link {
@@ -110,9 +109,9 @@ body {
 
 @media screen and (max-width: 991.98px) {
     #navbar .nav-link {
-      font-size: 1.2rem;
+        font-size: 1.2rem;
     }
-  }
+}
 
 /* Hero section with Parallax Scrolling Effect */
 .hero-section {
@@ -239,7 +238,7 @@ body {
     font-size: 1.5rem;
     margin-right: 1rem;
     vertical-align: middle;
-  }
+}
 
 /* Google My Business Section Styles */
 .google-section {
