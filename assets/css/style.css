@@ -102,6 +102,12 @@ body {
     border: none;
 }
 
+@media screen and (max-width: 991.98px) {
+    #navbar .nav-link {
+      font-size: 1.2rem;
+    }
+  }
+
 /* Hero section with Parallax Scrolling Effect */
 .hero-section {
     height: 100vh;
