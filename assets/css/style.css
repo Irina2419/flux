@@ -368,10 +368,3 @@ body {
     margin-right: 0.5rem;
     vertical-align: middle;
 }
-
-/* Footer phone link for mobile devices */  
-@media (min-width: 992px) {
-    .footer-phone-link {
-      display: none;
-    }
-  }
