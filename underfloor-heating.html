@@ -97,7 +97,7 @@
 
     <main class="main-content">
       <div class="container py-5">
-              <h1 class="main-heading">WunderFloor Hydronic Underfloor Heating</h1>
+        <h1 class="main-heading">WunderFloor Hydronic Underfloor Heating</h1>
         <!-- Brief description of the WunderFloor service and its commitment to quality -->
         <p class="intro-text">
           WunderFloor is a specialised division of our company, dedicated to
@@ -207,28 +207,28 @@
         new Date().getFullYear();
     </script>
 
-<script>
-  let lastScrollTop = 0;
-  const navbar = document.getElementById("navbar");
-  const toggler = document.querySelector(".navbar-toggler");
-  const navLinks = document.querySelector(".navbar-nav");
+    <script>
+      const navbar = document.getElementById("navbar");
+      const navLinks = document.querySelector(".navbar-nav");
+      const navToggler = document.querySelector(".navbar-toggler");
 
-  window.addEventListener("scroll", () => {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      let lastScrollTop = 0;
 
-    if (currentScroll > lastScrollTop) {
-      // Scrolling down: hide
-      toggler.classList.add("nav-hide");
-      navLinks.classList.add("nav-hide");
-    } else {
-      // Scrolling up: show
-      toggler.classList.remove("nav-hide");
-      navLinks.classList.remove("nav-hide");
-    }
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative values
-  });
-</script>
+      window.addEventListener("scroll", function () {
+        const currentScroll = window.scrollY;
 
+        if (currentScroll > lastScrollTop) {
+          // Scrolling down
+          navLinks.classList.add("nav-hide");
+          navToggler.classList.add("nav-hide");
+        } else {
+          // Scrolling up
+          navLinks.classList.remove("nav-hide");
+          navToggler.classList.remove("nav-hide");
+        }
 
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+      });
+    </script>
   </body>
 </html>
