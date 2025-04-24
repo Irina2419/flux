@@ -57,6 +57,12 @@ body {
     width: 100%;
 }
 
+.nav-hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
 /* Navigation link styles */
 #navbar .nav-link {
     color: #084913;

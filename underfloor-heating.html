@@ -206,5 +206,29 @@
       document.getElementById("current-year").textContent =
         new Date().getFullYear();
     </script>
+
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.getElementById("navbar");
+  const toggler = document.querySelector(".navbar-toggler");
+  const navLinks = document.querySelector(".navbar-nav");
+
+  window.addEventListener("scroll", () => {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+      // Scrolling down: hide
+      toggler.classList.add("nav-hide");
+      navLinks.classList.add("nav-hide");
+    } else {
+      // Scrolling up: show
+      toggler.classList.remove("nav-hide");
+      navLinks.classList.remove("nav-hide");
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative values
+  });
+</script>
+
+
   </body>
 </html>
