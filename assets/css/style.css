@@ -12,6 +12,15 @@
     src: url('../fonts/Roboto-Regular.woff') format('woff');
     font-style: normal;
     font-display: swap;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Bold.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
 }
 
 :root {
@@ -42,7 +51,7 @@ body {
 }
 
 #navbar .nav-link {
-    color: #084913 !important;
+    color: #084913;
     font-family: 'CelebriSans', sans-serif;
     font-weight: bold;
     margin-left: 0.05rem;
@@ -51,7 +60,7 @@ body {
 }
 
 #navbar .nav-link:hover {
-    color: #7ba075 !important;
+    color: #7ba075;
 }
 
 #navbar .company-name {
@@ -62,10 +71,10 @@ body {
 }
 
 .navbar-toggler {
-    border: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    outline: none !important;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    outline: none;
 }
 
 .navbar-toggler-icon {
@@ -75,9 +84,9 @@ body {
 
 .navbar-toggler:focus,
 .navbar-toggler:active {
-    outline: none !important;
-    box-shadow: none !important;
-    border: none !important;
+    outline: none;
+    box-shadow: none;
+    border: none;
 }
 
 .hero-section {
@@ -121,21 +130,20 @@ body {
     font-size: 2rem;
 }
 
-.main-content h2 {
+.main-content h2,
+.main-content h3 {
+    font-weight: bold;
     font-size: 1.5rem;
+    color: var(--primary-text-color);
+}
+
+.main-content h2 {
     padding-top: 2rem;
     padding-bottom: 2rem;
     text-align: center;
 }
 
-.main-content h2,
 .main-content h3 {
-    font-weight: bold;
-}
-
-.main-content h3 {
-    font-size: 1.5rem;
-    color: var(--primary-text-color);
     margin-bottom: 1rem;
 }
 
@@ -145,6 +153,8 @@ body {
     line-height: 1.4;
     color: var(--primary-text-color);
     font-weight: bold;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
 }
 
 .intro-text {
@@ -152,26 +162,22 @@ body {
     font-size: 1.5rem;
     line-height: 1.4;
     color: var(--primary-text-color);
+    margin-top: 2rem;
 }
 
 .row {
     display: flex;
-    /* Crucial for flexbox layout */
     flex-wrap: wrap;
-    /* Crucial for responsiveness */
 }
 
 .row>div {
     box-sizing: border-box;
-    /* Include padding in width */
     padding: 10px;
-    /* Your padding */
     text-align: center;
 }
 
 .row p {
     word-wrap: break-word;
-    /* Prevent text overflow */
 }
 
 /* Mobile (less than 576px) */
@@ -203,6 +209,7 @@ body {
     }
 }
 
+/* Default/fallback for .col-md-3 on small screens */
 .col-md-3 {
     flex: 0 0 100%;
     max-width: 100%;
@@ -218,39 +225,30 @@ body {
 /* Google My Business Section Styles */
 .google-section {
     text-align: center;
-    /* Center the entire section */
 }
 
 .google-section a {
     display: inline-flex;
-    /* Display the link as inline-flex */
     align-items: center;
-    /* Vertically align icon in the link */
 }
 
 .google-business-icon {
     display: block;
     height: 50px;
-    /* Adjust as needed */
     width: auto;
     transition: width 0.2s ease-in-out;
     margin-left: 0.5rem;
-    /* Changed to margin-left */
 }
 
 .google-text {
     font-size: 1rem;
-    /* Adjust text size */
     color: var(--primary-text-color);
-    /* Adjust text color */
     margin-right: 0.5rem;
-    /* Space between text and arrow */
     font-weight: bold;
 }
 
 .arrow-icon {
     height: 1rem;
-    /* Adjust arrow size */
     width: auto;
 }
 
@@ -258,13 +256,11 @@ body {
 @media (min-width: 768px) {
     .google-business-icon {
         height: 60px;
-        /* Larger size on tablets and desktops */
     }
 }
 
 .map-container iframe {
     height: 350px;
-    /* Specific height */
     width: 100%;
 }
 
@@ -284,6 +280,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-color: var(--background-green);
     background-image: url('../images/hero5.jpg');
     background-attachment: fixed;
     background-position: center bottom;
@@ -320,6 +317,7 @@ body {
 
 .footer-section h3 {
     font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .footer-section p,
@@ -338,4 +336,4 @@ body {
     font-size: 1.1rem;
     margin-right: 0.5rem;
     vertical-align: middle;
-  }
+}
