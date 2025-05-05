@@ -50,22 +50,22 @@ Scores are defined by Google as follows:
 
 > source
 
-Scores were obtained by running Lighthouse on Chrome Developer Tools on each page around 5 times for mobile and desktop, and the highest score was taken. From this, it is important to note that the Lighthouse score can vary each time you run the test; thus, it should be taken as a metric and not an absolute.
+Scores were obtained by running Lighthouse on Chrome Developer Tools on each page around 3 times for mobile and desktop, and the highest score was taken. From this, it is important to note that the Lighthouse score can vary each time you run the test; thus, it should be taken as a metric and not an absolute.
 
 **Home Page**
 
-- Desktop: `![performance_home_desktop](assets/images/performance_home_desktop.png)`
-- Mobile: `![performance_home_mobile](assets/images/performance_home_mobile.png)`
+- Desktop: ![performance_home_desktop](assets/images/performance_home_desktop.png)
+- Mobile: ![performance_home_mobile](assets/images/performance_home_mobile.png)
 
 **Wunderfloor Page**
 
-- Desktop: `![performance_wunderfloor_desktop](assets/images/performance_wunderfloor_desktop.png)`
-- Mobile: `![performance_wunderfloor_mobile](assets/images/performance_wunderfloor_mobile.png)`
+- Desktop: ![performance_wunderfloor_desktop](assets/images/performance_wunderfloor_desktop.png)
+- Mobile: ![performance_wunderfloor_mobile](assets/images/performance_wunderfloor_mobile.png)
 
 **Areas Covered Page**
 
-- Desktop: `![performance_areas_desktop](assets/images/performance_areas_desktop.png)`
-- Mobile: `![performance_areas_mobile](assets/images/performance_areas_mobile.png)`
+- Desktop: ![performance_areas_desktop](assets/images/performance_areas_desktop.png)
+- Mobile: ![performance_areas_mobile](assets/images/performance_areas_mobile.png)
 
 ## Considerations for Improvements of Performance
 
