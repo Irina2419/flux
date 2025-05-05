@@ -4,26 +4,22 @@ View Site -> FLUX | Bespoke Plumbing Services
 
 CONTENTS
 
-* [Solved Bugs](#solved-bugs)
 * [Automated Testing](#automated-testing)
     * [W3C CSS Validator](#w3c-css-validator)
     * [W3C HTML Validator](#w3c-html-validator)
-* [Perfomance Testing](#perfomance-testing)
-    * [Considerations For Test Results](#considerations-for-test-results)
-    * [Steps Taken to Improve Performance](#steps-taken-to-improve-performance)
-    * [Perfomrance Score Research](#perfomrance-score-research)
-* [Accesibility Testing](#accesibility-testing)
-    * [Steps Taken to Improve Accesibility](#steps-taken-to-improve-accesibility)
+        * [Index Page:](#index-page)
+        * [WunderFloor Page:](#wunderfloor-page)
+        * [Areas Page:](#areas-page)
+* [Performance, Accessibility, Best Practices and SEO Testing](#performance-accessibility-best-practices-and-seo-testing)
+    * [Home Page](#home-page)
+    * [Wunderfloor Page](#wunderfloor-page)
+    * [Areas Covered Page](#areas-covered-page)
+* [Considerations for Improvements of Performance](#considerations-for-improvements-of-performance)
+* [Steps Taken](#steps-taken-to-improve-performance)
+* [Accessibility](#accessibility)
+* [Best Practices](#best-practices)
+    * [Third-Party Cookies:](#third-party-cookies)
 * [SEO](#seo)
-    * [Steps Taken to Improve SEO](#steps-taken-to-improve-seo)
-* [Manual Testing](#manual-testing)
-    * [User Story Testing](#user-story-testing)
-    * [Full Testing](#full-testing)
-* [Solved Bugs](#solved-bugs)
-
-## Solved Bugs
-
-* I did not encounter many bugs as this is a static page, most issues were solved during the development cycle
 
 ## Automated Testing
 
@@ -46,124 +42,81 @@ Used [W3C Nu HTML Checker](https://validator.w3.org/nu/)
 **Areas Page:**
 ![HTML Validation Results - Areas Page](assets/images/html_validation_areas.png)
 
-## Perfomance Testing
+## Perfomance, Accessibility, Best Practices and CEO Testing
 
 Used [Google Lighthouse](https://developers.google.com/speed/pagespeed/) for testing.
 
 Scores are defined by Google as follows:
+
 > source
 
 Scores were obtained by running Lighthouse on Chrome Developer Tools on each page around 5 times for mobile and desktop, and the highest score was taken. From this, it is important to note that the Lighthouse score can vary each time you run the test; thus, it should be taken as a metric and not an absolute.
 
-* **Home Page**
-    * Desktop
-    * Mobile
-* **About Us Page**
-    * Desktop
-    * Mobile
-* **Subsidiaries Page**
-    * Desktop
-    * Mobile
-* **Corporate Responsibility Page**
-    * Desktop
-    * Mobile
-* **Investor Relations Page**
-    * Desktop
-    * Mobile
-* **Contact Page**
-    * Desktop
-    * Mobile
-* **Careers Page**
-    * Desktop
-    * Mobile
-* **Under Construction Page**
-    * Desktop
-    * Mobile
+**Home Page**
 
-### Considerations For Test Results
+- Desktop: `![performance_home_desktop](assets/images/performance_home_desktop.png)`
+- Mobile: `![performance_home_mobile](assets/images/performance_home_mobile.png)`
 
-Through some research, I have found that the largest factors holding the score back are the following. I did take a lot of steps to improve my store, and these are related in the following section. But keep working on the score further would be a large time sink and would yield diminishing returns. Even according to Google: "taking a score from 99 to 100 needs about the same amount of metric improvement that would take a 90 to 94." [source](https://web.dev/performance/optimizing-content-efficiency/lighthouse-performance-scoring/#:~:text=Considerations%20for%20chasing%20a%20perfect%20score)
+**Wunderfloor Page**
 
-Improvement could be made but would require possible restructuring of the project or removing features that help the site stand out and is beyond the scope of the project. The following improvements could be considered if Lighthouse scores close to 100 on all tests were needed:
+- Desktop: `![performance_wunderfloor_desktop](assets/images/performance_wunderfloor_desktop.png)`
+- Mobile: `![performance_wunderfloor_mobile](assets/images/performance_wunderfloor_mobile.png)`
 
-* **Bootstrap**: This is a 3rd party import and takes up load resources.
-    * Could be improved by importing Bootstrap locally.
-    * Minifying Bootstrap CSS.
-    * Use a library like Tailwind that purges unused CSS.
-* **Google Fonts**: This is a 3rd party font library that takes up load resources.
-    * Could locally import fonts to improve.
-    * Could compress fonts.
-* **Font Awesome**: This is a 3rd party icon library that takes up load resources.
-* **Animations**: These animations take up constant load time.
-    * Could remove animations.
+**Areas Covered Page**
 
-### Steps Taken to Improve Performance
+- Desktop: `![performance_areas_desktop](assets/images/performance_areas_desktop.png)`
+- Mobile: `![performance_areas_mobile](assets/images/performance_areas_mobile.png)`
 
-* Converted problematic images to webp format.
-* Compressed hero videos.
-* Added `poster` tag to videos.
-* Modified import scripts and links in the head tag to "reduce block-size rendering":
-    * Added `defer = ""` attribute to 3rd party scripts.
-    * Added `rel="preload" as="style" onload="this.rel='stylesheet'"` attribute to 3rd party links (Bootstrap).
-    * This saw a Lighthouse increase of 88 to 90 on my `index.html` page, which is one of the heaviest pages. These results were comparable on other pages, generally going from 95 to 98.
-    * Before
-    * After
-* Changing the h1 animation had extreme improvements in `index.html` and `about-us.html`.
-    * Was previously using an `animation` that affected the `letter-spacing` of the text; this caused the layout to go through various shifts and greatly increased load time.
-    * Changing this animation to a simpler one that only used `filter` fixed this issue, improving the load speed from around 90 to 99 in `index.html` and up to 95 in `about-us.html`.
-    * Before
-    * After
-* Adding a smaller video file that only gets shown to mobile devices had a big improvement in performance on mobile tests (no effect on desktop tests).
-    * Before
-    * After
-* Added smaller images to pages where the image load was generating a Lighthouse warning, set images that don't appear immediately to `loading="lazy"`.
-    * Saw minor improvements in mobile performance scores.
-    * Before
-    * After
+## Considerations for Improvements of Performance
 
-### Perfomrance Score Research
+Improvement could be made but would require a possible restructuring of the project or removing features that help the site stand out and is beyond the scope of the project. The following improvements could be considered if Lighthouse scores close to 100 on all tests were needed:
 
-I wanted to do some light research to see the performance score on similar websites, that being a conglomerate company that has a website that showcases their subsidiaries and industries they work in. I did this to compare the score that I have achieved and see how they fare in relation to professional websites. The test was only conducted on the home page of each site and was repeated a few times to ensure the best score. Note: I appreciate that these websites probably have much heavier 3rd party dependencies than mine, so this test should not be taken as a direct comparison.
+- **Bootstrap**: This is a 3rd party import and takes up load resources.
+- **Google Fonts**: This is a 3rd party font library that takes up load resources.
+  - Could be improved by establishing connections to these servers early in the page load process
+- **Font Awesome**: This is a 3rd party icon library that takes up load resources.
+  - Could be improved by establishing connections to these servers early in the page load process
+- **High-Quality Images**: The use of high-quality images increases the time taken to download the page.
+- Further optimisation could involve compressing these images, but this would reduce their quality, which is undesirable.
 
-* [ABB Group page link](https://global.abb/)
-    * Desktop
-    * Mobile
-* [General Motors page link](https://www.gm.com/)
-    * Desktop
-    * Mobile
-* [General Electric page link](https://www.ge.com/)
-    * Desktop
-    * Mobile
+## Steps Taken to Improve Performance
 
-## Accesibility Testing
+The following steps were taken to improve performance:
 
-I used the web inspector **Audit Tool** to find accessibility issues on my website.
-I also used [AC checker](https://achecker.ca/checker) to check for accessibility compliance.
-In the Audit, I managed to get all scores up to 100%.
-In the AC checker, I managed to remove all errors except for one regarding the heading nesting in my footer. But this didn't affect the Accessibility Audit, so I left it.
+- **Preconnect Optimisation**:
+  - I have implemented the following preconnect links:
+    - `<link rel="preconnect" href="https://cdn.jsdelivr.net" />`
+      - This preconnect establishes an early connection to jsDelivr, a popular content delivery network (CDN). It allows the browser to initiate the connection process before discovering resources (like JavaScript files, CSS, or images) being loaded from jsDelivr. This can significantly reduce the time it takes to fetch these resources.
+    - `<link rel="preconnect" href="https://fonts.googleapis.com" />`
+      - This preconnect establishes an early connection to the server that serves the CSS and font files. It allows the browser to initiate the connection process (DNS lookup, TCP handshake, TLS negotiation) before the browser discovers the font resource in the HTML. This reduces latency when fetching the CSS.
+    - `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />`
+      - This preconnect establishes an early connection to the server that actually delivers the font files. Because the CSS file from fonts.googleapis.com references font files on fonts.gstatic.com, preconnecting here can speed up font delivery. The `crossorigin` attribute is essential because Google Fonts serves its resources with CORS.
+    - `<link rel="preconnect" href="https://cdnjs.cloudflare.com" />`
+      - This preconnect establishes an early connection to Cloudflare's CDN. Like jsDelivr, Cloudflare hosts a variety of resources. Preconnecting can improve load times for CSS, JavaScript, and other assets.
+    - `<link rel="preconnect" href="https://maps.googleapis.com" />`
+      - This preconnect establishes an early connection to Google Maps API. It allows the browser to initiate the connection process before discovering resources (like JavaScript files, CSS, or images) required to display maps.
+    - `<link rel="preconnect" href="https://maps.gstatic.com" crossorigin />`
+      - This preconnect establishes an early connection to the server that delivers map tiles and data. The `crossorigin` attribute is needed because Google Maps serves some of its resources with CORS.
+    - `<link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style" crossorigin="anonymous">`
+      - This preload tells the browser to download the Bootstrap CSS file as early as possible during the page load. It identifies the resource as a stylesheet (`as="style"`) and `crossorigin="anonymous"` should be added for fetching resources from a different origin. This can significantly improve the time it takes for the browser to render the page, as it doesn't have to wait for the CSS to be discovered and downloaded later in the process.
 
-* **Home Page Accessibility Audit**
-* **About Us Page Accessibility Audit**
-* **Subsidiaries Page Accessibility Audit**
-* **Corporate Responsibility Page Accessibility Audit**
-* **Investor Relations Page Accessibility Audit**
-* **Contact Page Accessibility Audit**
-* **Careers Page Accessibility Audit**
-* **Under Construction Page Accessibility Audit**
+## Accesibility
 
-### Steps taken to improve Accesibility
+The accessibility is 100% throughout all the pages and sizes of both desktop and mobile devices.
 
-* Used `title` attribute on links.
-* Used `span` instead of `i` for icons.
+## Best Practices
 
-These two saw improvements in Accessibility results on both the Audit and the AC checker.
+On the "Areas Covered" page, the integration of Google Maps involves the use of third-party cookies.
+
+- **Third-Party Cookies:** Google Maps relies on third-party cookies for certain functionalities, such as tracking user interactions and preferences, and potentially for advertising purposes.
+- **Impact:** The use of third-party cookies can raise privacy concerns, as these cookies allow Google to collect data about user behaviour across different websites, not just within our site.
+- **Mitigation:**
+  - It's important to be transparent with users about the use of Google Maps and its associated third-party cookies. This is typically addressed in the website's privacy policy.
+  - While complete removal of third-party cookies related to Google Maps isn't feasible without removing the map functionality, we can:
+    - Ensure the website has a clear and comprehensive privacy policy that informs users about the data collection practices of Google Maps.
+    - Stay updated on the evolving privacy landscape and explore alternative mapping solutions or privacy-enhancing techniques if they become viable.
+- **Context:** The "Areas Covered" page requires the use of Google Maps to display the locations we serve.
 
 ## SEO
 
-Steps Taken to Improve SEO
-
-## Manual Testing
-
-### User Story Testing
-
-### Full Testing
+The accessibility is 100% throughout all the pages and sizes of both desktop and mobile devices.
