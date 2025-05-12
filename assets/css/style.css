@@ -229,6 +229,29 @@ body {
     }
 }
 
+        /* Custom CSS to center the carousel and adjust heading */
+        .carousel-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .carousel {
+            width: 70%; /* Adjust as needed */
+            margin: 0 auto; /* Center the carousel within its wrapper (optional if using flexbox justify-content) */
+        }
+
+        @media (max-width: 768px) {
+            .carousel {
+                width: 95%; /* Make carousel wider on smaller screens */
+            }
+        }
+
+        @media (min-width: 1200px) { /* For xl screens and above */
+            .projects-heading-wrapper {
+                text-align: left; /* Align heading to the left on larger screens */
+            }
+        }
+
 /* Feature icon styles */
 .feature-icon {
     color: var(--primary-text-color);
