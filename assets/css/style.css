@@ -31,7 +31,7 @@
 :root {
     --primary-text-color: #222;
     --background-green: #A7D1AB;
-    --footer-white: #f2f2f2; /* Softer white for footer text */
+    --footer-white: #d3d3d3; 
 }
 
 /* Asterisk wildcard selector to override default styles added by the browser */
@@ -352,14 +352,24 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 0; /* Ensure the overlay is below the text */
 }
 
 /* Ensures text layers appear above overlay */
-.footer-content {
-    position: relative;
-    z-index: 1;
+.footer-section {
+    position: relative; /* Establish a stacking context */
+    z-index: 1; /* Ensure the footer content is above the overlay */
+}
+
+.footer-section h3,
+.footer-section p,
+.footer-section a,
+.footer-section .footer-icon,
+.footer-section .rights-reserved {
+    position: relative; /* Ensure text is positioned above the overlay */
+    z-index: 2; /* Higher z-index than the overlay */
+    color: var(--footer-white); /* Use white text for readability */
 }
 
 /* Footer text and links */
@@ -465,14 +475,23 @@ body {
     transition: color 0.3s ease;
 }
 
-.aspect-card:hover .feature-icon {
-    color: #ffffff; /* Change icon color to white on hover */
-}
-
 /* Ensure all cards in the Key Aspects section are the same height */
 .key-aspects .row {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch; /* Make all cards stretch to the same height */
+}
+
+/* Carousel Styling */
+.carousel {
+    border: 2px solid #7BA075; /* Same border as the cards */
+    border-radius: 10px; /* Slightly rounded corners */
+    overflow: hidden; /* Ensure the content stays within the rounded edges */
+    transition: border-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.carousel:hover {
+    border-color: #084913; /* Dark green border on hover */
+    transform: translateY(-5px); /* Slight lift effect on hover */
 }
 
