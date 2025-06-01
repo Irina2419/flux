@@ -395,3 +395,130 @@ body {
     vertical-align: middle;
 }
 
+/* Ensure the text and carousel are aligned side by side */
+.main-content .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Ensure equal width for text and carousel on larger screens */
+.main-content .col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+/* Add spacing between the text and carousel */
+.main-content .col-lg-6:first-child {
+    padding-right: 1rem;
+}
+
+.main-content .col-lg-6:last-child {
+    padding-left: 1rem;
+}
+
+/* Adjust the carousel size */
+.main-content .carousel {
+    width: 100%; /* Ensure the carousel spans the full width of its container */
+    max-width: 90%; /* Limit the maximum width of the carousel */
+    margin: 0 auto; /* Center the carousel within its column */
+}
+
+/* Add rounded corners to the carousel */
+.main-content .carousel {
+    border-radius: 10px; /* Adjust the value for softer or sharper corners */
+    overflow: hidden; /* Ensure the images inside the carousel don't overflow the rounded corners */
+}
+
+/* Add rounded corners to the images inside the carousel */
+.main-content .carousel img {
+    border-radius: 10px; /* Match the carousel's border-radius for consistency */
+}
+
+/* Ensure images inside the carousel fill the container */
+.main-content .carousel img {
+    width: 100%; /* Make images fill the carousel width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any inline spacing issues */
+}
+
+/* Remove any extra padding or margin around the carousel */
+.main-content .col-lg-6:last-child {
+    padding-left: 1rem; /* Adjust as needed */
+    margin: 0; /* Ensure no extra margin is applied */
+}
+
+/* On smaller screens, stack the text and carousel vertically */
+@media (max-width: 991.98px) {
+    .main-content .col-lg-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .main-content .col-lg-6:first-child {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Key Aspects Section */
+.key-aspects {
+    background-color: #A7D1AB; /* Match the main section's background color */
+    color: #333;
+}
+
+.key-aspects h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.aspect-card {
+    border: 1px solid #ddd; /* Default light border */
+    border-radius: 10px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.aspect-card:hover {
+    border-color: #084913; /* Dark green border on hover */
+    transform: translateY(-5px); /* Slight lift effect */
+}
+
+.aspect-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.aspect-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.aspect-card .feature-icon {
+    color: #084913;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    transition: color 0.3s ease;
+}
+
+.aspect-card:hover .feature-icon {
+    color: #084913; /* Keep the icon color consistent */
+}
+
+/* Ensure all cards in the Key Aspects section are the same height */
+.key-aspects .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch; /* Make all cards stretch to the same height */
+}
+
+.aspect-card {
+    display: flex;
+    flex-direction: column; /* Ensure content inside the card stacks vertically */
+    justify-content: space-between; /* Distribute content evenly */
+    height: 100%; /* Ensure cards take up the full height */
+}
+
