@@ -31,7 +31,7 @@
 :root {
     --primary-text-color: #222;
     --background-green: #A7D1AB;
-    --footer-white: #cccccc;
+    --footer-white: #f2f2f2; /* Softer white for footer text */
 }
 
 /* Asterisk wildcard selector to override default styles added by the browser */
@@ -365,99 +365,54 @@ body {
 /* Footer text and links */
 .footer-section h3,
 .footer-section p,
-.footer-section a {
-    font-family: 'Roboto', sans-serif;
-    font-weight: normal;
-    color: var(--footer-white);
+.footer-section a,
+.footer-section .footer-icon,
+.footer-section .rights-reserved {
+    color: var(--footer-white) !important; /* Force the whitish color */
 }
 
 .footer-section h3 {
-    font-size: 1.3rem;
+    font-family: 'CelebriSans', sans-serif; /* Match navigation font */
+    font-size: 2rem;
     font-weight: bold;
+    margin-bottom: 1rem;
 }
 
-.footer-section p,
+.footer-section p {
+    font-size: 1rem;
+    margin: 0;
+}
+
 .footer-section a {
-    font-size: 1.1rem;
+    color: var(--footer-white);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-    opacity: 0.7;
+    color: #7BA075; /* Slightly lighter green on hover */
 }
 
-/* FontAwesome icons in footer */
-.footer-icon {
+.footer-section .footer-icon {
     color: var(--footer-white);
-    font-size: 1.1rem;
     margin-right: 0.5rem;
     vertical-align: middle;
 }
 
-/* Ensure the text and carousel are aligned side by side */
-.main-content .row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+.footer-section .rights-reserved {
+    font-size: 0.9rem; /* Smaller font size for rights reserved text */
+    margin-top: 1rem;
+    color: var(--footer-white);
 }
 
-/* Ensure equal width for text and carousel on larger screens */
-.main-content .col-lg-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-}
-
-/* Add spacing between the text and carousel */
-.main-content .col-lg-6:first-child {
-    padding-right: 1rem;
-}
-
-.main-content .col-lg-6:last-child {
-    padding-left: 1rem;
-}
-
-/* Adjust the carousel size */
-.main-content .carousel {
-    width: 100%; /* Ensure the carousel spans the full width of its container */
-    max-width: 90%; /* Limit the maximum width of the carousel */
-    margin: 0 auto; /* Center the carousel within its column */
-}
-
-/* Add rounded corners to the carousel */
-.main-content .carousel {
-    border-radius: 10px; /* Adjust the value for softer or sharper corners */
-    overflow: hidden; /* Ensure the images inside the carousel don't overflow the rounded corners */
-}
-
-/* Add rounded corners to the images inside the carousel */
-.main-content .carousel img {
-    border-radius: 10px; /* Match the carousel's border-radius for consistency */
-}
-
-/* Ensure images inside the carousel fill the container */
-.main-content .carousel img {
-    width: 100%; /* Make images fill the carousel width */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove any inline spacing issues */
-}
-
-/* Remove any extra padding or margin around the carousel */
-.main-content .col-lg-6:last-child {
-    padding-left: 1rem; /* Adjust as needed */
-    margin: 0; /* Ensure no extra margin is applied */
-}
-
-/* On smaller screens, stack the text and carousel vertically */
-@media (max-width: 991.98px) {
-    .main-content .col-lg-6 {
-        flex: 0 0 100%;
-        max-width: 100%;
-        padding: 0;
+/* Responsive Alignment */
+@media (max-width: 768px) {
+    .footer-section .text-md-start {
+        text-align: center !important; /* Center-align on smaller screens */
     }
 
-    .main-content .col-lg-6:first-child {
-        margin-bottom: 2rem;
+    .footer-section .text-md-end {
+        text-align: center !important; /* Center-align on smaller screens */
     }
 }
 
@@ -465,6 +420,7 @@ body {
 .key-aspects {
     background-color: #A7D1AB; /* Match the main section's background color */
     color: #333;
+    text-align: center;
 }
 
 .key-aspects h2 {
@@ -479,6 +435,10 @@ body {
     transition: transform 0.3s ease, border-color 0.3s ease, border-width 0.3s ease;
     background-color: #91BD99; /* Slightly darker than #A7D1AB */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Ensure equal height for all cards */
 }
 
 .aspect-card:hover {
@@ -506,7 +466,7 @@ body {
 }
 
 .aspect-card:hover .feature-icon {
-    color: #084913; /* Keep the icon color consistent */
+    color: #ffffff; /* Change icon color to white on hover */
 }
 
 /* Ensure all cards in the Key Aspects section are the same height */
@@ -514,12 +474,5 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch; /* Make all cards stretch to the same height */
-}
-
-.aspect-card {
-    display: flex;
-    flex-direction: column; /* Ensure content inside the card stacks vertically */
-    justify-content: space-between; /* Distribute content evenly */
-    height: 100%; /* Ensure cards take up the full height */
 }
 
