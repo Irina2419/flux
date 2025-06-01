@@ -133,10 +133,10 @@ body {
 
 /* Hero section with Parallax Scrolling Effect */
 .hero-section {
-    height: 100vh;
+    min-height: 100vh; /* Make the hero section take the full viewport height */
     width: 100%;
     background-color: var(--background-green);
-    background-image: url('../images/hero5.jpg'); /* Default hero image */
+    background-image: url('../images/hero6.jpg'); /* Default hero image */
     background-attachment: fixed;
     background-position: center 20%;
     background-repeat: no-repeat;
@@ -145,7 +145,8 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* Allow content to extend beyond the container */
+    padding: 6rem 2rem; /* Add more padding for spacing */
 }
 
 /* Specific hero image for index.html */
@@ -153,11 +154,20 @@ body {
     background-image: url('../images/hero5.jpg'); /* Ensure the correct image is used */
 }
 
+/* Hero content styling */
+.hero-content {
+  width: 100%; /* Ensure it takes the full width */
+  max-width: 1200px; /* Optional: Set a maximum width */
+  margin: 0 auto; /* Center the content horizontally */
+  padding: 3rem 2rem; /* Add more vertical padding */
+  text-align: center; /* Center-align the content */
+}
+
 /* Main content style */
 .main-content {
     background-color: #A7D1AB;
     color: var(--primary-text-color);
-    padding-top: 120px; /* Ensure content doesn't overlap with the navbar */
+    padding-top: 60px; /* Ensure content doesn't overlap with the navbar */
 }
 
 /* Main heading */
@@ -166,7 +176,7 @@ body {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 2rem;
-    padding-top: 5rem;
+    padding-top: 2rem;
 }
 
 /* Main content sub-headings */
@@ -365,7 +375,7 @@ body {
     align-items: center;
     text-align: center;
     background-color: var(--background-green);
-    background-image: url('../images/hero5.jpg');
+    background-image: url('../images/hero6.jpg');
     background-attachment: fixed;
     background-position: center bottom;
     background-repeat: no-repeat;
@@ -526,5 +536,55 @@ body {
 .carousel:hover {
     border-color: #084913; /* Dark green border on hover */
     transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+/* Shattering Text Animation */
+.shatter-text {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+
+.shatter-text span {
+  display: inline-block;
+  opacity: 0; /* Start with invisible letters */
+  transform: scale(0); /* Start with letters scaled down */
+}
+
+.shatter-text span:nth-child(odd) {
+  animation-delay: calc(0.1s * var(--i));
+}
+
+.shatter-text span:nth-child(even) {
+  animation-delay: calc(0.15s * var(--i));
+}
+
+@keyframes shatter {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50px) rotate(15deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(100px) rotate(-30deg);
+    opacity: 0;
+  }
+}
+
+#construction-plumbing {
+  display: inline-block;
+  width: 100%; /* Ensure it takes the full width of its parent */
+  text-align: center; /* Center-align the text */
+  margin: 3rem auto; /* Add vertical spacing */
+}
+
+#construction-plumbing span {
+  display: inline-block;
+  margin: 0 0.1rem; /* Add horizontal spacing */
+  letter-spacing: 0.2rem; /* Adjust spacing between letters */
+  line-height: 3; /* Increase line height to prevent chopping */
 }
 

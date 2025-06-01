@@ -96,18 +96,22 @@
       </div>
     </nav>
 
-    <!-- Hero Section (Can be used for a banner image or intro) -->
+    <!-- Hero Section (Updated with main heading and intro paragraph) -->
     <header class="hero-section">
-      <div class="hero-content container"></div>
+      <div class="hero-content container text-center">
+        <h1 class="main-heading shatter-text" id="construction-plumbing">
+          <span>C</span><span>o</span><span>n</span><span>s</span><span>t</span><span>r</span><span>u</span><span>c</span><span>t</span><span>i</span><span>o</span><span>n</span>
+          <span>P</span><span>l</span><span>u</span><span>m</span><span>b</span><span>i</span><span>n</span><span>g</span>
+        </h1>
+        <p class="main-intro-paragraph">
+          Innovative plumbing solutions for modern construction
+        </p>
+      </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
       <div class="container py-5">
-        <h1 class="main-heading">Construction Plumbing</h1>
-        <p class="main-intro-paragraph">
-          Innovative plumbing solutions for modern construction
-        </p>
         <!-- Services offered by the company -->
         <div class="row">
           <!-- Card 1: Planning -->
@@ -249,6 +253,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <!-- Auto Update Year in Footer -->
     <script>
@@ -256,19 +261,20 @@
         new Date().getFullYear();
     </script>
 
-    <!-- Hide the navbar when scrolling -->
-    <script>
-      const navbar = document.getElementById("navbar");
-
-      window.addEventListener("scroll", function () {
-        const currentScroll = window.scrollY;
-
-        if (currentScroll > 100) {
-          navbar.classList.add("nav-hide");
-        } else {
-          navbar.classList.remove("nav-hide");
-        }
-      });
-    </script>
+        <!-- Hide the navbar when scrolling -->
+        <script>
+          const navbar = document.getElementById("navbar");
+    
+          window.addEventListener("scroll", function () {
+            const currentScroll = window.scrollY;
+    
+            if (currentScroll > 100) {
+              navbar.classList.add("nav-hide");
+            } else {
+              navbar.classList.remove("nav-hide");
+            }
+          });
+        </script>
+        <script src="assets/js/script.js"></script>
   </body>
 </html>
