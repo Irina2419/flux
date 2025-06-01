@@ -165,7 +165,7 @@ body {
 
 /* Short hero section for the underfloor page */
 .short-hero {
-  height: 35vh; /* Shorter height compared to the full hero */
+  height: 20vh; /* Shorter height compared to the full hero */
   width: 100%;
   background-image: url('../images/hero7.JPG'); /* Use hero7 image */
   background-attachment: fixed;
