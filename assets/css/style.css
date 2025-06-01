@@ -306,10 +306,23 @@ body {
     }
 }
 
-/* Embedded map size */
+/* Map container styling */
+.map-container {
+    border-radius: 10px; /* Slightly rounded corners */
+    overflow: hidden; /* Ensure content stays within the rounded edges */
+    position: relative; /* Ensure proper positioning for iframe */
+    width: 100%; /* Ensure the container takes full width */
+    height: 350px; /* Set a consistent height for the map container */
+}
+
+/* Ensure iframe fits perfectly inside the container */
 .map-container iframe {
-    height: 350px;
-    width: 90%;
+    width: 100%; /* Make the iframe fill the container's width */
+    height: 100%; /* Make the iframe fill the container's height */
+    border: none; /* Remove default iframe border */
+    display: block; /* Ensure no extra space is added */
+    border-radius: 10px; /* Slightly rounded corners */
+    overflow: hidden; /* Ensure content stays within the rounded edges */
 }
 
 /* Smaller map for mobile */
