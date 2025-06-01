@@ -163,6 +163,30 @@ body {
   text-align: center; /* Center-align the content */
 }
 
+/* Short hero section for the underfloor page */
+.short-hero {
+  height: 35vh; /* Shorter height compared to the full hero */
+  width: 100%;
+  background-image: url('../images/hero7.JPG'); /* Use hero7 image */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  text-align: center;
+}
+
+/* Hero text styling */
+.underfloor-hero h1 {
+  font-family: 'CelebriSans', sans-serif;
+  font-size: 2.5rem; /* Adjust font size as needed */
+  font-weight: bold;
+  color: var(--primary-text-color); /* Use primary text color */
+  margin: 0;
+}
+
 /* Main content style */
 .main-content {
     background-color: #A7D1AB;
@@ -587,4 +611,3 @@ body {
   letter-spacing: 0.2rem; /* Adjust spacing between letters */
   line-height: 3; /* Increase line height to prevent chopping */
 }
-
