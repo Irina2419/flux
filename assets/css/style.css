@@ -1,5 +1,5 @@
 /* Importing Montserrat font from Google Fonts with full weight & italic support */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 /* Adding a custom font 'CelebriSans' from local assets */
 @font-face {
@@ -30,8 +30,8 @@
 /* CSS variables */
 :root {
     --primary-text-color: #222;
-    --background-green: #A7D1AB;
-    --footer-white: #d3d3d3; 
+    --background-green: #F5F5F7; /* Changed from #A7D1AB */
+    --footer-white: #d3d3d3;
 }
 
 /* Asterisk wildcard selector to override default styles added by the browser */
@@ -43,7 +43,7 @@
 
 /* Apply global font stack */
 body {
-    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-family: 'Lato', 'Roboto', sans-serif;
 }
 
 /* Navigation styles */
@@ -65,7 +65,7 @@ body {
 
 /* Navigation link styles */
 #navbar .nav-link {
-    color: #084913;
+    color: #181818; /* Nice black for nav links */
     font-family: 'CelebriSans', sans-serif;
     font-weight: bold;
     margin: 0.5rem 0;
@@ -74,15 +74,16 @@ body {
 }
 
 /* Hover effect for nav links */
-#navbar .nav-link:hover {
-    color: #7ba075;
+#navbar .nav-link:hover,
+#navbar .nav-item .nav-link:hover {
+    color: #000 !important; /* Pure black on hover */
 }
 
 /* Brand name styling */
 #navbar .company-name {
     font-family: 'CelebriSans', sans-serif;
     font-weight: bold;
-    color: var(--primary-text-color);
+    color: #181818; /* Nice black for brand */
     font-size: 2rem;
 }
 
@@ -111,8 +112,10 @@ body {
 @media screen and (max-width: 991.98px) {
 
     .navbar-collapse .nav-item {
-        margin: 0 !important; /* Remove extra margin around nav items */
-        padding: 0 !important;  /* Remove extra margin around nav items */
+        margin: 0 !important;
+        /* Remove extra margin around nav items */
+        padding: 0 !important;
+        /* Remove extra margin around nav items */
     }
 
     #navbar .nav-link {
@@ -121,22 +124,25 @@ body {
 
     /* Reduce vertical spacing between nav links in the collapsed menu */
     .navbar-collapse .nav-link {
-        margin: 0; /* Reduce vertical margin */
-        padding: 0.2rem 0; /* Adjust padding for better alignment */
+        margin: 0;
+        /* Reduce vertical margin */
+        padding: 0.2rem 0;
+        /* Adjust padding for better alignment */
     }
 
     /* Optional: Reduce padding inside the navbar collapse container */
     .navbar-collapse {
-        padding: 0; /* Remove extra padding inside the collapsed menu */
+        padding: 0;
+        /* Remove extra padding inside the collapsed menu */
     }
 }
 
 /* Hero section with Parallax Scrolling Effect */
 .hero-section {
-    min-height: 100vh; /* Make the hero section take the full viewport height */
-    width: 100%;
-    background-color: var(--background-green);
-    background-image: url('../images/hero6.jpg'); /* Default hero image */
+    min-height: 100vh;
+    /* Make the hero section take the full viewport height */
+    background-color: var(--background-green); /* Now #F5F5F7 */
+    background-image: none; /* Remove hero image */
     background-attachment: fixed;
     background-position: center 20%;
     background-repeat: no-repeat;
@@ -145,58 +151,41 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: visible; /* Allow content to extend beyond the container */
-    padding: 6rem 2rem; /* Add more padding for spacing */
+    overflow: visible;
+    /* Allow content to extend beyond the container */
+    padding: 6rem 2rem;
+    /* Add more padding for spacing */
 }
 
 /* Specific hero image for index.html */
 .index-page .hero-section {
-    background-image: url('../images/hero5.jpg'); /* Ensure the correct image is used */
+    background-image: none; /* Remove the home page hero image */
+    background-color: var(--background-green); /* Ensure background is #F5F5F7 */
 }
 
 /* Hero content styling */
 .hero-content {
-  width: 100%; /* Ensure it takes the full width */
-  max-width: 1200px; /* Optional: Set a maximum width */
-  margin: 0 auto; /* Center the content horizontally */
-  padding: 3rem 2rem; /* Add more vertical padding */
-  text-align: center; /* Center-align the content */
-}
-
-/* Short hero section for the underfloor page */
-.short-hero {
-  height: 20vh; /* Shorter height compared to the full hero */
-  width: 100%;
-  background-image: url('../images/hero7.JPG'); /* Use hero7 image */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  align-items: center; /* Center content vertically */
-  justify-content: center; /* Center content horizontally */
-  text-align: center;
-}
-
-/* Hero text styling */
-.underfloor-hero h1 {
-  font-family: 'CelebriSans', sans-serif;
-  font-size: 2.5rem; /* Adjust font size as needed */
-  font-weight: bold;
-  color: var(--primary-text-color); /* Use primary text color */
-  margin: 0;
+    width: 100%;
+    /* Ensure it takes the full width */
+    max-width: 1200px;
+    /* Optional: Set a maximum width */
+    margin: 0 0;
+    /* Center the content horizontally */
+    text-align: center;
+    /* Center-align the content */
 }
 
 /* Main content style */
 .main-content {
-    background-color: #A7D1AB;
+    background-color: var(--background-green); /* Now #F5F5F7 */
     color: var(--primary-text-color);
-    padding-top: 60px; /* Ensure content doesn't overlap with the navbar */
+    padding-top: 60px;
+    /* Ensure content doesn't overlap with the navbar */
 }
 
 /* Main heading */
 .main-heading {
-    text-align: center;
+    text-align: left;
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 2rem;
@@ -282,28 +271,34 @@ body {
     }
 }
 
-        /* Custom CSS to center the carousel and adjust heading */
-        .carousel-wrapper {
-            display: flex;
-            justify-content: center;
-        }
+/* Custom CSS to center the carousel and adjust heading */
+.carousel-wrapper {
+    display: flex;
+    justify-content: center;
+}
 
-        .carousel {
-            width: 70%; /* Adjust as needed */
-            margin: 0 auto; /* Center the carousel within its wrapper (optional if using flexbox justify-content) */
-        }
+.carousel {
+    width: 70%;
+    /* Adjust as needed */
+    margin: 0 auto;
+    /* Center the carousel within its wrapper (optional if using flexbox justify-content) */
+}
 
-        @media (max-width: 768px) {
-            .carousel {
-                width: 95%; /* Make carousel wider on smaller screens */
-            }
-        }
+@media (max-width: 768px) {
+    .carousel {
+        width: 95%;
+        /* Make carousel wider on smaller screens */
+    }
+}
 
-        @media (min-width: 1200px) { /* For xl screens and above */
-            .projects-heading-wrapper {
-                text-align: left; /* Align heading to the left on larger screens */
-            }
-        }
+@media (min-width: 1200px) {
+
+    /* For xl screens and above */
+    .projects-heading-wrapper {
+        text-align: left;
+        /* Align heading to the left on larger screens */
+    }
+}
 
 /* Feature icon styles */
 .feature-icon {
@@ -355,40 +350,59 @@ body {
 
 /* Map container styling */
 .map-container {
-    border-radius: 10px; /* Slightly rounded corners */
-    overflow: hidden; /* Ensure content stays within the rounded edges */
-    position: relative; /* Ensure proper positioning for iframe */
-    width: 100%; /* Ensure the container takes full width */
-    height: 350px; /* Set a consistent height for the map container */
+    border-radius: 10px;
+    /* Slightly rounded corners */
+    overflow: hidden;
+    /* Ensure content stays within the rounded edges */
+    position: relative;
+    /* Ensure proper positioning for iframe */
+    width: 100%;
+    /* Ensure the container takes full width */
+    height: 350px;
+    /* Set a consistent height for the map container */
 }
 
 /* Ensure iframe fits perfectly inside the container */
 .map-container iframe {
-    width: 100%; /* Make the iframe fill the container's width */
-    height: 100%; /* Make the iframe fill the container's height */
-    border: none; /* Remove default iframe border */
-    display: block; /* Ensure no extra space is added */
-    border-radius: 10px; /* Slightly rounded corners */
-    overflow: hidden; /* Ensure content stays within the rounded edges */
+    width: 100%;
+    /* Make the iframe fill the container's width */
+    height: 100%;
+    /* Make the iframe fill the container's height */
+    border: none;
+    /* Remove default iframe border */
+    display: block;
+    /* Ensure no extra space is added */
+    border-radius: 10px;
+    /* Slightly rounded corners */
+    overflow: hidden;
+    /* Ensure content stays within the rounded edges */
 }
 
 /* Smaller map for mobile */
 @media screen and (max-width: 576px) {
     .map-container {
-        margin: 0 auto 0.5rem auto !important; /* Center horizontally and reduce space below */
-        display: block; /* Ensure it behaves like a block element */
-        width: 90%; /* Adjust width for better fit */
+        margin: 0 auto 0.5rem auto !important;
+        /* Center horizontally and reduce space below */
+        display: block;
+        /* Ensure it behaves like a block element */
+        width: 90%;
+        /* Adjust width for better fit */
     }
 
-    .map-container + p {
-        margin-top: 0.5rem !important; /* Reduce space above the link */
-        margin-bottom: 0 !important; /* Remove unnecessary space below the link */
-        text-align: center; /* Center-align the link */
+    .map-container+p {
+        margin-top: 0.5rem !important;
+        /* Reduce space above the link */
+        margin-bottom: 0 !important;
+        /* Remove unnecessary space below the link */
+        text-align: center;
+        /* Center-align the link */
     }
 }
 
 /* Footer section layout and background styling */
 .footer-section {
+    background-color: var(--background-green); /* Now #F5F5F7 */
+    background-image: none; /* Remove footer image */
     height: auto;
     min-height: 35vh;
     width: 100%;
@@ -398,19 +412,13 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: var(--background-green);
-    background-image: url('../images/hero6.jpg');
-    background-attachment: fixed;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
     font-family: 'Roboto', sans-serif;
     color: var(--footer-white);
 }
 
 /* Alternate footer image for underfloor page */
 .underfloor-footer {
-    background-image: url('../images/second_page_image.png');
+    background-image: none; /* Remove alternate footer image */
 }
 
 
@@ -419,14 +427,18 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
-    z-index: 0; /* Ensure the overlay is below the text */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Dark overlay */
+    z-index: 0;
+    /* Ensure the overlay is below the text */
 }
 
 /* Ensures text layers appear above overlay */
 .footer-section {
-    position: relative; /* Establish a stacking context */
-    z-index: 1; /* Ensure the footer content is above the overlay */
+    position: relative;
+    /* Establish a stacking context */
+    z-index: 1;
+    /* Ensure the footer content is above the overlay */
 }
 
 .footer-section h3,
@@ -434,9 +446,12 @@ body {
 .footer-section a,
 .footer-section .footer-icon,
 .footer-section .rights-reserved {
-    position: relative; /* Ensure text is positioned above the overlay */
-    z-index: 2; /* Higher z-index than the overlay */
-    color: var(--footer-white); /* Use white text for readability */
+    position: relative;
+    /* Ensure text is positioned above the overlay */
+    z-index: 2;
+    /* Higher z-index than the overlay */
+    color: var(--footer-white);
+    /* Use white text for readability */
 }
 
 /* Footer text and links */
@@ -445,11 +460,13 @@ body {
 .footer-section a,
 .footer-section .footer-icon,
 .footer-section .rights-reserved {
-    color: var(--footer-white) !important; /* Force the whitish color */
+    color: var(--footer-white) !important;
+    /* Force the whitish color */
 }
 
 .footer-section h3 {
-    font-family: 'CelebriSans', sans-serif; /* Match navigation font */
+    font-family: 'CelebriSans', sans-serif;
+    /* Match navigation font */
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -467,7 +484,8 @@ body {
 }
 
 .footer-section a:hover {
-    color: #7BA075; /* Slightly lighter green on hover */
+    color: #7BA075;
+    /* Slightly lighter green on hover */
 }
 
 .footer-section .footer-icon {
@@ -477,7 +495,8 @@ body {
 }
 
 .footer-section .rights-reserved {
-    font-size: 0.9rem; /* Smaller font size for rights reserved text */
+    font-size: 0.9rem;
+    /* Smaller font size for rights reserved text */
     margin-top: 1rem;
     color: var(--footer-white);
 }
@@ -485,17 +504,19 @@ body {
 /* Responsive Alignment */
 @media (max-width: 768px) {
     .footer-section .text-md-start {
-        text-align: center !important; /* Center-align on smaller screens */
+        text-align: center !important;
+        /* Center-align on smaller screens */
     }
 
     .footer-section .text-md-end {
-        text-align: center !important; /* Center-align on smaller screens */
+        text-align: center !important;
+        /* Center-align on smaller screens */
     }
 }
 
 /* Key Aspects Section */
 .key-aspects {
-    background-color: #A7D1AB; /* Match the main section's background color */
+    background-color: var(--background-green); /* Now #F5F5F7 */
     color: #333;
     text-align: center;
 }
@@ -507,21 +528,27 @@ body {
 }
 
 .aspect-card {
-    border: 2px solid #7BA075; /* Slightly darker green border */
+    border: 2px solid #7BA075;
+    /* Slightly darker green border */
     border-radius: 10px;
     transition: transform 0.3s ease, border-color 0.3s ease, border-width 0.3s ease;
-    background-color: #91BD99; /* Slightly darker than #A7D1AB */
+    background-color: #91BD99;
+    /* Slightly darker than #A7D1AB */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%; /* Ensure equal height for all cards */
+    height: 100%;
+    /* Ensure equal height for all cards */
 }
 
 .aspect-card:hover {
-    border-color: #084913; /* Dark green border on hover */
-    border-width: 4px; /* Thicker border on hover */
-    transform: translateY(-5px); /* Slight lift effect */
+    border-color: #084913;
+    /* Dark green border on hover */
+    border-width: 4px;
+    /* Thicker border on hover */
+    transform: translateY(-5px);
+    /* Slight lift effect */
 }
 
 .aspect-card h3 {
@@ -546,68 +573,125 @@ body {
 .key-aspects .row {
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch; /* Make all cards stretch to the same height */
+    align-items: stretch;
+    /* Make all cards stretch to the same height */
 }
 
 /* Carousel Styling */
 .carousel {
-    border: 2px solid #7BA075; /* Same border as the cards */
-    border-radius: 10px; /* Slightly rounded corners */
-    overflow: hidden; /* Ensure the content stays within the rounded edges */
-    transition: border-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+    border: 2px solid #7BA075;
+    /* Same border as the cards */
+    border-radius: 10px;
+    /* Slightly rounded corners */
+    overflow: hidden;
+    /* Ensure the content stays within the rounded edges */
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    /* Smooth transition for hover effects */
 }
 
 .carousel:hover {
-    border-color: #084913; /* Dark green border on hover */
-    transform: translateY(-5px); /* Slight lift effect on hover */
+    border-color: #084913;
+    /* Dark green border on hover */
+    transform: translateY(-5px);
+    /* Slight lift effect on hover */
 }
 
 /* Shattering Text Animation */
 .shatter-text {
-  display: inline-block;
-  overflow: hidden;
-  position: relative;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
 }
 
 .shatter-text span {
-  display: inline-block;
-  opacity: 0; /* Start with invisible letters */
-  transform: scale(0); /* Start with letters scaled down */
+    display: inline-block;
+    opacity: 0;
+    /* Start with invisible letters */
+    transform: scale(0);
+    /* Start with letters scaled down */
 }
 
 .shatter-text span:nth-child(odd) {
-  animation-delay: calc(0.1s * var(--i));
+    animation-delay: calc(0.1s * var(--i));
 }
 
 .shatter-text span:nth-child(even) {
-  animation-delay: calc(0.15s * var(--i));
+    animation-delay: calc(0.15s * var(--i));
 }
 
 @keyframes shatter {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-50px) rotate(15deg);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(100px) rotate(-30deg);
-    opacity: 0;
-  }
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-50px) rotate(15deg);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(100px) rotate(-30deg);
+        opacity: 0;
+    }
 }
 
 #construction-plumbing {
-  display: inline-block;
-  width: 100%; /* Ensure it takes the full width of its parent */
-  text-align: center; /* Center-align the text */
-  margin: 3rem auto; /* Add vertical spacing */
+    font-size: 2.5rem;
+    display: inline-block;
+    width: 100%;
+    /* Ensure it takes the full width of its parent */
+    text-align: center;
+    /* Center-align the text */
+    margin: 3rem auto;
+    /* Add vertical spacing */
+}
+
+#construction-plumbing .word {
+    display: block;
+    /* Force each word to be on its own line */
+    text-align: center;
+    /* Center-align each word */
 }
 
 #construction-plumbing span {
-  display: inline-block;
-  margin: 0 0.1rem; /* Add horizontal spacing */
-  letter-spacing: 0.2rem; /* Adjust spacing between letters */
-  line-height: 3; /* Increase line height to prevent chopping */
+    display: inline-block;
+    letter-spacing: 0.4rem;
+    /* Adjust spacing between letters */
+    line-height: 3;
+    /* Increase line height to prevent chopping */
+}
+
+@media screen and (max-width: 576px) {
+    #construction-plumbing {
+        font-size: 0.8rem;
+        /* Reduce font size for smaller screens */
+    }
+
+    #construction-plumbing span {
+        font-size: 1rem;
+        /* Ensure individual spans also have reduced font size */
+        letter-spacing: 0.1rem;
+    }
+}
+
+#construction-plumbing .word {
+    display: block;
+    /* Force each word to be on its own line */
+    text-align: center;
+    /* Center-align each word */
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width: 991px) {
+    #construction-plumbing {
+        font-size: 2rem;
+        /* Reduce font size for smaller screens */
+    }
+
+    #construction-plumbing span {
+        font-size: 2rem;
+        /* Ensure individual spans also have reduced font size */
+        letter-spacing: 0.4rem;
+    }
 }
