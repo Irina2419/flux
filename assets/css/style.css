@@ -29,9 +29,11 @@
 
 /* CSS variables */
 :root {
-    --primary-text-color: #222;
-    --background-green: #F5F5F7; /* Changed from #A7D1AB */
-    --footer-white: #d3d3d3;
+    --primary-text-color: #1d1d1f; /* Shark Gray, similar to Apple's dark text */
+    --background-light-gray: #F5F5F7; /* Athens Gray from Apple palette */
+    --footer-text-color: #d3d3d3; /* A light gray for footer text */
+    --card-border-color: #E8E8ED; /* Very subtle light gray border */
+    --apple-blue: #007AFF; /* Apple's signature blue for accents/links */
 }
 
 /* Asterisk wildcard selector to override default styles added by the browser */
@@ -44,31 +46,34 @@
 /* Apply global font stack */
 body {
     font-family: 'Lato', 'Roboto', sans-serif;
+    color: var(--primary-text-color);
 }
 
-/* Navigation styles */
+/* Navbar styles */
 #navbar {
     position: fixed;
     top: 0;
-    background-color: transparent !important;
-    transition: background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9) !important; /* Slightly translucent white */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    transition: background-color 0.3s ease, transform 0.3s ease;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     width: 100%;
+    z-index: 1000; /* Ensure navbar is on top */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle bottom border */
 }
 
 /* Hiding the navbar when scrolling */
 #navbar.nav-hide {
     transform: translateY(-100%);
-    transition: transform 0.3s ease;
 }
 
 /* Navigation link styles */
 #navbar .nav-link {
-    color: #181818; /* Nice black for nav links */
+    color: var(--primary-text-color); /* Dark gray/black for nav links */
     font-family: 'CelebriSans', sans-serif;
     font-weight: bold;
-    margin: 0.5rem 0;
+    margin: 0 0.75rem; /* Increased horizontal margin */
     padding: 0.5rem 0.5rem;
     transition: color 0.3s ease;
 }
@@ -76,14 +81,19 @@ body {
 /* Hover effect for nav links */
 #navbar .nav-link:hover,
 #navbar .nav-item .nav-link:hover {
-    color: #000 !important; /* Pure black on hover */
+    color: var(--apple-blue) !important; /* Apple blue on hover */
+}
+
+/* Active nav link */
+#navbar .nav-link.active {
+    color: var(--apple-blue);
 }
 
 /* Brand name styling */
 #navbar .company-name {
     font-family: 'CelebriSans', sans-serif;
     font-weight: bold;
-    color: #181818; /* Nice black for brand */
+    color: var(--primary-text-color); /* Dark gray/black for brand */
     font-size: 2rem;
 }
 
@@ -97,7 +107,7 @@ body {
 
 /* Custom hamburger icon for mobile menu */
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(29, 29, 31, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     border: none;
 }
 
@@ -110,132 +120,125 @@ body {
 }
 
 @media screen and (max-width: 991.98px) {
-
     .navbar-collapse .nav-item {
         margin: 0 !important;
-        /* Remove extra margin around nav items */
         padding: 0 !important;
-        /* Remove extra margin around nav items */
     }
 
     #navbar .nav-link {
         font-size: 1.2rem;
+        text-align: center; /* Center links in collapsed menu */
     }
 
-    /* Reduce vertical spacing between nav links in the collapsed menu */
     .navbar-collapse .nav-link {
         margin: 0;
-        /* Reduce vertical margin */
-        padding: 0.2rem 0;
-        /* Adjust padding for better alignment */
+        padding: 0.5rem 0;
     }
 
-    /* Optional: Reduce padding inside the navbar collapse container */
     .navbar-collapse {
         padding: 0;
-        /* Remove extra padding inside the collapsed menu */
+        background-color: rgba(255, 255, 255, 0.95); /* More opaque when expanded */
+        border-radius: 0 0 10px 10px;
     }
 }
 
-/* Hero section with Parallax Scrolling Effect */
+/* Hero section */
 .hero-section {
-    min-height: 100vh;
-    /* Make the hero section take the full viewport height */
-    background-color: var(--background-green); /* Now #F5F5F7 */
-    background-image: none; /* Remove hero image */
-    background-attachment: fixed;
-    background-position: center 20%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    min-height: 80vh; /* Adjust height for a more compact hero */
+    background-color: var(--background-light-gray);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: visible;
-    /* Allow content to extend beyond the container */
     padding: 6rem 2rem;
-    /* Add more padding for spacing */
 }
 
-/* Specific hero image for index.html */
-.index-page .hero-section {
-    background-image: none; /* Remove the home page hero image */
-    background-color: var(--background-green); /* Ensure background is #F5F5F7 */
+/* Short hero section for other pages */
+.short-hero {
+    min-height: 30vh; /* Shorter hero for sub-pages */
+    background-color: var(--background-light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5rem; /* Ensure content is below navbar */
 }
+
 
 /* Hero content styling */
 .hero-content {
     width: 100%;
-    /* Ensure it takes the full width */
     max-width: 1200px;
-    /* Optional: Set a maximum width */
-    margin: 0 0;
-    /* Center the content horizontally */
-    text-align: center;
-    /* Center-align the content */
+    margin: 0 auto;
+    text-align: left; /* Left-align hero content */
+    padding-left: 1rem; /* Small left padding */
+    padding-right: 1rem; /* Small right padding */
 }
 
 /* Main content style */
 .main-content {
-    background-color: var(--background-green); /* Now #F5F5F7 */
+    background-color: var(--background-light-gray);
     color: var(--primary-text-color);
     padding-top: 60px;
-    /* Ensure content doesn't overlap with the navbar */
+    padding-bottom: 60px;
 }
 
-/* Main heading */
-.main-heading {
-    text-align: left;
-    font-size: 2.5rem;
-    font-weight: bold;
+/* Consistent heading class for all H1, H2, H3 */
+.section-title {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700; /* Bold */
+    font-size: 2.5rem; /* Larger for main headings */
+    text-align: left; /* Default left alignment */
     margin-bottom: 2rem;
-    padding-top: 2rem;
+    color: var(--primary-text-color);
 }
 
-/* Main content sub-headings */
 .main-content h2,
 .main-content h3 {
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem; /* Slightly smaller for sub-headings */
+    text-align: left; /* Left-align sub-headings */
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-text-color);
 }
 
 .main-content h2 {
-    padding-top: 2.5rem;
-    padding-bottom: 2rem;
-}
-
-.main-content h3 {
-    margin-bottom: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 /* Main intro paragraph */
 .main-intro-paragraph {
-    text-align: center;
-    font-size: 2rem;
+    text-align: left; /* Left-align intro paragraph */
+    font-size: 1.5rem;
     line-height: 1.4;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    margin-top: 3rem;
+    font-weight: 400; /* Regular weight */
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    color: var(--primary-text-color);
 }
 
 /* Smaller intro text */
 .intro-text {
-    text-align: center;
-    font-size: 1.5rem;
-    line-height: 1.4;
+    text-align: left; /* Left-align intro text */
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    color: var(--primary-text-color);
 }
 
 /* Layout for columns */
 .row {
     display: flex;
     flex-wrap: wrap;
+    margin-left: -15px; /* Adjust for Bootstrap's row padding */
+    margin-right: -15px;
 }
 
-.row>div {
-    box-sizing: border-box;
-    padding: 10px;
-    text-align: center;
+.row > [class*="col-"] {
+    padding-left: 15px; /* Adjust for Bootstrap's col padding */
+    padding-right: 15px;
 }
 
 .row p {
@@ -244,9 +247,13 @@ body {
 
 /* Responsive grid: 100% width for small screens */
 @media screen and (max-width: 575.98px) {
-    .row>div {
+    .row > div {
         flex: 0 0 100%;
         max-width: 100%;
+    }
+
+    .section-title {
+        font-size: 2rem;
     }
 }
 
@@ -271,32 +278,117 @@ body {
     }
 }
 
+/* Card styling (Apple-like) */
+.apple-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--card-border-color);
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Ensure equal height for all cards */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    overflow: hidden; /* Ensures content stays within rounded corners */
+}
+
+.apple-card:hover {
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slightly more prominent shadow on hover */
+}
+
+.apple-card .card-body {
+    padding: 1.5rem; /* Generous padding */
+    text-align: left; /* Align text within cards to left */
+}
+
+.apple-card h2, .apple-card h3 {
+    font-size: 1.3rem; /* Slightly smaller for card titles */
+    font-weight: 600; /* Semi-bold */
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-text-color);
+    text-align: left; /* Ensure card headings are left aligned */
+}
+
+.apple-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4A4A4A; /* Slightly lighter gray for body text */
+}
+
+.apple-card .feature-icon {
+    color: var(--apple-blue); /* Apple blue for icons */
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+}
+
+
 /* Custom CSS to center the carousel and adjust heading */
 .carousel-wrapper {
     display: flex;
     justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .carousel {
-    width: 70%;
-    /* Adjust as needed */
+    width: 85%; /* Adjust as needed */
     margin: 0 auto;
-    /* Center the carousel within its wrapper (optional if using flexbox justify-content) */
+    border: none; /* Remove border */
+    border-radius: 12px; /* Apply rounded corners */
+    overflow: hidden; /* Ensure images within are clipped */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for carousel */
+}
+
+.carousel-inner img {
+    border-radius: 12px; /* Apply rounded corners to images inside carousel */
+    object-fit: cover; /* Ensure images cover the area without distortion */
+}
+
+/* Carousel controls (arrows) */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%; /* Make clickable area smaller */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.6); /* Darker, slightly translucent */
+    border-radius: 50%; /* Make them circular */
+    padding: 1rem; /* Adjust size */
+    transition: background-color 0.3s ease;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darken on hover */
 }
 
 @media (max-width: 768px) {
     .carousel {
-        width: 95%;
-        /* Make carousel wider on smaller screens */
+        width: 95%; /* Make carousel wider on smaller screens */
     }
-}
-
-@media (min-width: 1200px) {
-
-    /* For xl screens and above */
-    .projects-heading-wrapper {
-        text-align: left;
-        /* Align heading to the left on larger screens */
+    .section-title {
+        font-size: 2rem;
+        text-align: center; /* Center main headings on smaller screens */
+    }
+    .main-intro-paragraph {
+        text-align: center; /* Center intro paragraph on smaller screens */
+    }
+    .intro-text {
+        text-align: center; /* Center intro text on smaller screens */
+    }
+    .main-content h2,
+    .main-content h3 {
+        text-align: center; /* Center sub-headings on smaller screens */
+    }
+    .apple-card .card-body {
+        text-align: center; /* Center text within cards on smaller screens */
+    }
+    .apple-card h2, .apple-card h3 {
+        text-align: center; /* Center card headings on smaller screens */
     }
 }
 
@@ -311,11 +403,14 @@ body {
 /* Google My Business Section Styles */
 .google-section {
     text-align: center;
+    margin-top: 3rem;
+    padding-bottom: 2rem;
 }
 
 .google-section a {
     display: inline-flex;
     align-items: center;
+    text-decoration: none; /* Remove underline from link */
 }
 
 /* Google icon */
@@ -323,22 +418,27 @@ body {
     display: block;
     height: 50px;
     width: auto;
-    transition: width 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     margin-left: 0.5rem;
+}
+
+.google-business-icon:hover {
+    transform: scale(1.05);
 }
 
 /* Text next to Google logo */
 .google-text {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--primary-text-color);
     margin-right: 0.5rem;
-    font-weight: bold;
+    font-weight: 500; /* Medium weight */
 }
 
 /* Arrow icon size */
 .arrow-icon {
     height: 1rem;
     width: auto;
+    filter: invert(20%); /* Darken arrow for contrast */
 }
 
 /* Media query for larger screens for Google logo */
@@ -350,59 +450,42 @@ body {
 
 /* Map container styling */
 .map-container {
-    border-radius: 10px;
-    /* Slightly rounded corners */
+    border-radius: 12px; /* Consistent rounded corners */
     overflow: hidden;
-    /* Ensure content stays within the rounded edges */
     position: relative;
-    /* Ensure proper positioning for iframe */
     width: 100%;
-    /* Ensure the container takes full width */
     height: 350px;
-    /* Set a consistent height for the map container */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 1.5rem; /* Space below map */
 }
 
 /* Ensure iframe fits perfectly inside the container */
 .map-container iframe {
     width: 100%;
-    /* Make the iframe fill the container's width */
     height: 100%;
-    /* Make the iframe fill the container's height */
     border: none;
-    /* Remove default iframe border */
     display: block;
-    /* Ensure no extra space is added */
-    border-radius: 10px;
-    /* Slightly rounded corners */
-    overflow: hidden;
-    /* Ensure content stays within the rounded edges */
 }
 
 /* Smaller map for mobile */
 @media screen and (max-width: 576px) {
     .map-container {
-        margin: 0 auto 0.5rem auto !important;
-        /* Center horizontally and reduce space below */
-        display: block;
-        /* Ensure it behaves like a block element */
+        margin: 1rem auto; /* Center horizontally and add vertical space */
         width: 90%;
-        /* Adjust width for better fit */
+        height: 250px; /* Adjust height for mobile */
     }
 
-    .map-container+p {
-        margin-top: 0.5rem !important;
-        /* Reduce space above the link */
-        margin-bottom: 0 !important;
-        /* Remove unnecessary space below the link */
+    .map-container + p {
+        margin-top: 0.5rem;
+        margin-bottom: 0;
         text-align: center;
-        /* Center-align the link */
     }
 }
 
 /* Footer section layout and background styling */
 .footer-section {
-    background-color: var(--background-green); /* Now #F5F5F7 */
-    background-image: none; /* Remove footer image */
+    background-color: var(--background-light-gray);
+    background-image: none; /* Removed specific footer images */
     height: auto;
     min-height: 35vh;
     width: 100%;
@@ -413,32 +496,24 @@ body {
     align-items: center;
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    color: var(--footer-white);
+    color: var(--footer-text-color); /* Light gray text */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
-
-/* Alternate footer image for underfloor page */
-.underfloor-footer {
-    background-image: none; /* Remove alternate footer image */
-}
-
 
 /* Dark overlay for footer readability */
 .footer-section::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Dark overlay */
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
     z-index: 0;
-    /* Ensure the overlay is below the text */
 }
 
 /* Ensures text layers appear above overlay */
 .footer-section {
     position: relative;
-    /* Establish a stacking context */
     z-index: 1;
-    /* Ensure the footer content is above the overlay */
 }
 
 .footer-section h3,
@@ -447,26 +522,13 @@ body {
 .footer-section .footer-icon,
 .footer-section .rights-reserved {
     position: relative;
-    /* Ensure text is positioned above the overlay */
     z-index: 2;
-    /* Higher z-index than the overlay */
-    color: var(--footer-white);
-    /* Use white text for readability */
+    color: var(--footer-text-color) !important; /* Force the whitish color */
 }
 
 /* Footer text and links */
-.footer-section h3,
-.footer-section p,
-.footer-section a,
-.footer-section .footer-icon,
-.footer-section .rights-reserved {
-    color: var(--footer-white) !important;
-    /* Force the whitish color */
-}
-
 .footer-section h3 {
     font-family: 'CelebriSans', sans-serif;
-    /* Match navigation font */
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -478,122 +540,45 @@ body {
 }
 
 .footer-section a {
-    color: var(--footer-white);
+    color: var(--footer-text-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-    color: #7BA075;
-    /* Slightly lighter green on hover */
+    color: #FFFFFF; /* White on hover */
 }
 
 .footer-section .footer-icon {
-    color: var(--footer-white);
+    color: var(--footer-text-color);
     margin-right: 0.5rem;
     vertical-align: middle;
 }
 
 .footer-section .rights-reserved {
     font-size: 0.9rem;
-    /* Smaller font size for rights reserved text */
     margin-top: 1rem;
-    color: var(--footer-white);
+    color: var(--footer-text-color);
 }
 
 /* Responsive Alignment */
 @media (max-width: 768px) {
     .footer-section .text-md-start {
         text-align: center !important;
-        /* Center-align on smaller screens */
     }
 
     .footer-section .text-md-end {
         text-align: center !important;
-        /* Center-align on smaller screens */
     }
 }
 
-/* Key Aspects Section */
+/* Key Aspects Section (uses apple-card) */
 .key-aspects {
-    background-color: var(--background-green); /* Now #F5F5F7 */
-    color: #333;
+    background-color: var(--background-light-gray);
+    color: var(--primary-text-color);
     text-align: center;
-}
-
-.key-aspects h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-}
-
-.aspect-card {
-    border: 2px solid #7BA075;
-    /* Slightly darker green border */
-    border-radius: 10px;
-    transition: transform 0.3s ease, border-color 0.3s ease, border-width 0.3s ease;
-    background-color: #91BD99;
-    /* Slightly darker than #A7D1AB */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    /* Ensure equal height for all cards */
-}
-
-.aspect-card:hover {
-    border-color: #084913;
-    /* Dark green border on hover */
-    border-width: 4px;
-    /* Thicker border on hover */
-    transform: translateY(-5px);
-    /* Slight lift effect */
-}
-
-.aspect-card h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-top: 1rem;
-}
-
-.aspect-card p {
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-.aspect-card .feature-icon {
-    color: #084913;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    transition: color 0.3s ease;
-}
-
-/* Ensure all cards in the Key Aspects section are the same height */
-.key-aspects .row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    /* Make all cards stretch to the same height */
-}
-
-/* Carousel Styling */
-.carousel {
-    border: 2px solid #7BA075;
-    /* Same border as the cards */
-    border-radius: 10px;
-    /* Slightly rounded corners */
-    overflow: hidden;
-    /* Ensure the content stays within the rounded edges */
-    transition: border-color 0.3s ease, transform 0.3s ease;
-    /* Smooth transition for hover effects */
-}
-
-.carousel:hover {
-    border-color: #084913;
-    /* Dark green border on hover */
-    transform: translateY(-5px);
-    /* Slight lift effect on hover */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 /* Shattering Text Animation */
@@ -601,97 +586,69 @@ body {
     display: inline-block;
     overflow: hidden;
     position: relative;
+    width: 100%; /* Take full width of its container */
+    text-align: left; /* Align to the left */
+}
+
+.shatter-text .word {
+    display: inline-block; /* Changed from block to inline-block */
+    text-align: left; /* Align words to the left within the line */
+    margin-right: 0.5em; /* Space between words */
 }
 
 .shatter-text span {
     display: inline-block;
     opacity: 0;
-    /* Start with invisible letters */
     transform: scale(0);
-    /* Start with letters scaled down */
-}
-
-.shatter-text span:nth-child(odd) {
-    animation-delay: calc(0.1s * var(--i));
-}
-
-.shatter-text span:nth-child(even) {
-    animation-delay: calc(0.15s * var(--i));
-}
-
-@keyframes shatter {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-
-    50% {
-        transform: translateY(-50px) rotate(15deg);
-        opacity: 0.5;
-    }
-
-    100% {
-        transform: translateY(100px) rotate(-30deg);
-        opacity: 0;
-    }
+    /* GSAP will handle initial positioning and animation */
 }
 
 #construction-plumbing {
-    font-size: 2.5rem;
-    display: inline-block;
-    width: 100%;
-    /* Ensure it takes the full width of its parent */
-    text-align: center;
-    /* Center-align the text */
-    margin: 3rem auto;
-    /* Add vertical spacing */
+    font-size: 3.5rem; /* Larger font size for main heading */
+    font-weight: bold;
+    line-height: 1.2; /* Tighter line height */
+    margin: 1.5rem auto; /* Adjust vertical spacing */
+    color: var(--primary-text-color);
+    text-align: left; /* Left align the entire block */
 }
 
 #construction-plumbing .word {
-    display: block;
-    /* Force each word to be on its own line */
-    text-align: center;
-    /* Center-align each word */
+    display: inline-block; /* Allow words to flow on the same line */
+    text-align: left;
+    margin-right: 0.75em; /* Space between words */
+    white-space: nowrap; /* Prevent words from breaking */
 }
 
 #construction-plumbing span {
     display: inline-block;
-    letter-spacing: 0.4rem;
-    /* Adjust spacing between letters */
-    line-height: 3;
-    /* Increase line height to prevent chopping */
-}
-
-@media screen and (max-width: 576px) {
-    #construction-plumbing {
-        font-size: 0.8rem;
-        /* Reduce font size for smaller screens */
-    }
-
-    #construction-plumbing span {
-        font-size: 1rem;
-        /* Ensure individual spans also have reduced font size */
-        letter-spacing: 0.1rem;
-    }
-}
-
-#construction-plumbing .word {
-    display: block;
-    /* Force each word to be on its own line */
-    text-align: center;
-    /* Center-align each word */
-    font-size: 0.8rem;
+    letter-spacing: 0.05rem; /* Reduce letter spacing */
+    line-height: 1.2; /* Ensure line height is consistent */
 }
 
 @media screen and (max-width: 991px) {
     #construction-plumbing {
-        font-size: 2rem;
-        /* Reduce font size for smaller screens */
+        font-size: 2.5rem; /* Adjust font size for medium screens */
     }
-
-    #construction-plumbing span {
-        font-size: 2rem;
-        /* Ensure individual spans also have reduced font size */
-        letter-spacing: 0.4rem;
+    #construction-plumbing .word {
+        margin-right: 0.5em;
     }
 }
+
+@media screen and (max-width: 576px) {
+    #construction-plumbing {
+        font-size: 1.8rem; /* Further reduce font size for small screens */
+        text-align: center; /* Center on very small screens */
+    }
+    #construction-plumbing .word {
+        display: block; /* Force words to new lines on very small screens */
+        text-align: center;
+        margin-right: 0;
+    }
+    #construction-plumbing span {
+        font-size: 1.8rem; /* Ensure individual spans also have reduced font size */
+        letter-spacing: 0.02rem;
+    }
+    .hero-content {
+        text-align: center; /* Center hero content on very small screens */
+    }
+}s
