@@ -53,14 +53,14 @@ body {
 #navbar {
     position: fixed;
     top: 0;
-    background-color: rgba(255, 255, 255, 0.9) !important; /* Slightly translucent white */
-    backdrop-filter: blur(10px); /* Frosted glass effect */
+    background-color: transparent !important; /* Fully transparent navbar */
+    backdrop-filter: none; /* Remove frosted glass effect */
     transition: background-color 0.3s ease, transform 0.3s ease;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     width: 100%;
     z-index: 1000; /* Ensure navbar is on top */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle bottom border */
+    border-bottom: none; /* Remove any border from navbar */
 }
 
 /* Hiding the navbar when scrolling */
