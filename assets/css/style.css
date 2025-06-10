@@ -163,7 +163,7 @@ body {
 
 /* Hero section */
 .hero-section {
-    min-height: 80vh; /* Adjust height for a more compact hero */
+    min-height: 30vh; /* Adjust height for a more compact hero */
     background-color: var(--background-light-gray);
     display: flex;
     align-items: center;
