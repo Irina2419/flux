@@ -1,61 +1,52 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // GSAP Shatter Text Animation for "Construction Plumbing"
-    const letters = document.querySelectorAll("#construction-plumbing span");
+  // Auto Update Year in Footer
+  const currentYearSpan = document.getElementById("current-year");
+  if (currentYearSpan) {
+    currentYearSpan.textContent = new Date().getFullYear();
+  }
 
-    const tl = gsap.timeline({
-        repeat: -1, // Infinite loop
-        repeatDelay: 0.65, // Delay between repeats
-        yoyo: true // Reverse animation on repeat
-    });
+  // Hide the navbar when scrolling
+  const navbar = document.getElementById("navbar");
+  let lastScrollY = window.scrollY; // Track last scroll position
 
-    // Randomize initial positions
-    letters.forEach((letter) => {
-        gsap.set(letter, {
-            x: getRandom(-500, 500),
-            y: getRandom(-500, 500),
-            rotation: getRandom(-720, 720),
-            scale: 0,
-            opacity: 0
-        });
-    });
+  window.addEventListener("scroll", function () {
+    const currentScrollY = window.scrollY;
 
-    // Animate letters to their original positions and scale them up
-    tl.to(letters, {
-        x: 0,
-        y: 0,
-        rotation: 0,
-        scale: 1, // Reset scale to normal size, not bigger as per Apple style
-        opacity: 1,
-        stagger: 0.05, // Delay between each letter's animation
-        ease: "power4.out", // Changed ease for a smoother arrival
-        duration: 0.75
-    });
-
-    // Function to generate random values
-    function getRandom(min, max) {
-        return Math.random() * (max - min) + min;
+    // Hide navbar when scrolling down, show when scrolling up
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      navbar.classList.add("nav-hide");
+    } else if (currentScrollY < lastScrollY || currentScrollY <= 100) {
+      // Show if scrolling up or if at the top
+      navbar.classList.remove("nav-hide");
     }
+    lastScrollY = currentScrollY; // Update last scroll position
+  });
 
-    // Auto Update Year in Footer
-    const currentYearSpan = document.getElementById("current-year");
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
+  // Function to apply scaling effect to interactive blocks (carousel and video)
+  function applyInteractiveBlockScaling(blockSelector) {
+    const block = document.querySelector(blockSelector);
+    if (block) {
+      window.addEventListener('scroll', function () {
+        const rect = block.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        // Calculate how much of the block is in the viewport
+        let visible = Math.max(0, Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0));
+        let percentVisible = visible / rect.height;
+
+        // Clamp scale between 0.98 and 1.01 for a subtle effect
+        // Apple's effect is very subtle, often just a slight "pop" or "sink"
+        let scale = 0.98 + 0.03 * percentVisible; // (max_scale - min_scale) * percentVisible + min_scale
+
+        block.style.transform = `scale(${scale})`;
+      });
     }
+  }
 
-    // Hide the navbar when scrolling
-    const navbar = document.getElementById("navbar");
-    let lastScrollY = window.scrollY; // Track last scroll position
+  // Apply scaling to the carousel on the WunderFloor page (assuming it uses .interactive-block.carousel-card)
+  applyInteractiveBlockScaling('.interactive-block.carousel-card');
 
-    window.addEventListener("scroll", function () {
-        const currentScrollY = window.scrollY;
+  // Apply scaling to the new video card on the home page
+  applyInteractiveBlockScaling('.interactive-block.video-card');
 
-        // Hide navbar when scrolling down, show when scrolling up
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            navbar.classList.add("nav-hide");
-        } else if (currentScrollY < lastScrollY || currentScrollY <= 100) {
-            // Show if scrolling up or if at the top
-            navbar.classList.remove("nav-hide");
-        }
-        lastScrollY = currentScrollY; // Update last scroll position
-    });
 });

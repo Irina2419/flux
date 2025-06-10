@@ -34,6 +34,25 @@
     --footer-text-color: #d3d3d3; /* A light gray for footer text */
     --card-border-color: #E8E8ED; /* Very subtle light gray border */
     --apple-blue: #007AFF; /* Apple's signature blue for accents/links */
+
+    /* New variables for consistent main headings */
+    --main-heading-font: 'Lato', 'Roboto', sans-serif;
+    --main-heading-size: 2.5rem; /* Default for general main headings */
+    --main-heading-weight: 700;
+    --main-heading-color: #181818;
+    --main-heading-margin-top: 2.5rem;
+    --main-heading-margin-bottom: 2rem;
+    --main-heading-align: left; /* Always left-aligned */
+
+    /* New variables for consistent main paragraphs */
+    --main-paragraph-font: 'Lato', 'Roboto', sans-serif;
+    --main-paragraph-size: 1.5rem;
+    --main-paragraph-line-height: 1.4;
+    --main-paragraph-weight: 400;
+    --main-paragraph-color: #181818;
+    --main-paragraph-margin-top: 1rem;
+    --main-paragraph-margin-bottom: 1.5rem;
+    --main-paragraph-align: left; /* Always left-aligned */
 }
 
 /* Asterisk wildcard selector to override default styles added by the browser */
@@ -53,14 +72,14 @@ body {
 #navbar {
     position: fixed;
     top: 0;
-    background-color: transparent !important; /* Fully transparent navbar */
-    backdrop-filter: none; /* Remove frosted glass effect */
+    background-color: rgba(255, 255, 255, 0.9) !important; /* Slightly translucent white */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
     transition: background-color 0.3s ease, transform 0.3s ease;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     width: 100%;
     z-index: 1000; /* Ensure navbar is on top */
-    border-bottom: none; /* Remove any border from navbar */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle bottom border */
 }
 
 /* Hiding the navbar when scrolling */
@@ -99,8 +118,8 @@ body {
 
 /* Navbar toggler (hamburger) button reset */
 .navbar-toggler {
-    border: none;
-    background: transparent;
+    border: none; /* Removed border */
+    background-color: transparent; /* Made background transparent */
     box-shadow: none;
     outline: none;
 }
@@ -153,16 +172,6 @@ body {
     padding: 6rem 2rem;
 }
 
-/* Short hero section for other pages */
-.short-hero {
-    min-height: 30vh; /* Shorter hero for sub-pages */
-    background-color: var(--background-light-gray);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 5rem; /* Ensure content is below navbar */
-}
-
 
 /* Hero content styling */
 .hero-content {
@@ -182,22 +191,13 @@ body {
     padding-bottom: 60px;
 }
 
-/* Consistent heading class for all H1, H2, H3 */
-.section-title {
-    font-family: 'Lato', sans-serif;
-    font-weight: 700; /* Bold */
-    font-size: 2.5rem; /* Larger for main headings */
-    text-align: left; /* Default left alignment */
-    margin-bottom: 2rem;
-    color: var(--primary-text-color);
-}
-
+/* Adjustments for sub-headings within main content */
 .main-content h2,
 .main-content h3 {
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
+    font-family: var(--main-heading-font);
+    font-weight: var(--main-heading-weight);
     font-size: 1.8rem; /* Slightly smaller for sub-headings */
-    text-align: left; /* Left-align sub-headings */
+    text-align: left; /* Always left-aligned */
     margin-top: 1.5rem;
     margin-bottom: 1rem;
     color: var(--primary-text-color);
@@ -206,26 +206,6 @@ body {
 .main-content h2 {
     padding-top: 1.5rem;
     padding-bottom: 1rem;
-}
-
-/* Main intro paragraph */
-.main-intro-paragraph {
-    text-align: left; /* Left-align intro paragraph */
-    font-size: 1.5rem;
-    line-height: 1.4;
-    font-weight: 400; /* Regular weight */
-    margin-bottom: 1.5rem;
-    margin-top: 1rem;
-    color: var(--primary-text-color);
-}
-
-/* Smaller intro text */
-.intro-text {
-    text-align: left; /* Left-align intro text */
-    font-size: 1.1rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-    color: var(--primary-text-color);
 }
 
 /* Layout for columns */
@@ -251,10 +231,7 @@ body {
         flex: 0 0 100%;
         max-width: 100%;
     }
-
-    .section-title {
-        font-size: 2rem;
-    }
+    /* Removed text-align: center overrides for main headings and paragraphs here */
 }
 
 /* Medium screens: 2-column layout */
@@ -325,32 +302,59 @@ body {
 }
 
 
-/* Custom CSS to center the carousel and adjust heading */
-.carousel-wrapper {
+/* Custom CSS for main interactive blocks (carousel, video) */
+.interactive-block-wrapper {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem; /* Increased margin for better separation */
+    padding: 0 1rem; /* Add some horizontal padding for smaller screens */
 }
 
-.carousel {
-    width: 85%; /* Adjust as needed */
-    margin: 0 auto;
-    border: none; /* Remove border */
-    border-radius: 12px; /* Apply rounded corners */
-    overflow: hidden; /* Ensure images within are clipped */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for carousel */
+.interactive-block {
+    width: 100%;
+    max-width: 1200px; /* Max width similar to Apple's large content blocks */
+    aspect-ratio: 16/7; /* Aspect ratio for video/carousel */
+    border-radius: 1.5rem; /* Consistent rounded corners */
+    overflow: hidden; /* Ensure content stays within rounded corners */
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12); /* Subtle shadow */
+    background: #fff; /* White background for blocks */
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    transition: transform 0.5s cubic-bezier(.4,0,.2,1); /* Smooth transform */
+    will-change: transform;
 }
 
-.carousel-inner img {
-    border-radius: 12px; /* Apply rounded corners to images inside carousel */
-    object-fit: cover; /* Ensure images cover the area without distortion */
+.interactive-block:hover {
+    transform: scale(1.01); /* Slight lift effect on hover for both video and carousel */
+}
+
+/* Specific styles for elements inside interactive blocks */
+.interactive-block .carousel,
+.interactive-block .carousel-inner,
+.interactive-block .carousel-item,
+.interactive-block video {
+    width: 100%;
+    height: 100%;
+    min-height: 300px; /* Ensure a minimum height for visibility */
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.interactive-block .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area without distortion */
+    border-radius: 1.5rem; /* Apply rounded corners to images within */
+    display: block;
 }
 
 /* Carousel controls (arrows) */
 .carousel-control-prev,
 .carousel-control-next {
-    width: 10%; /* Make clickable area smaller */
+    width: 8%; /* Make clickable area smaller */
 }
 
 .carousel-control-prev-icon,
@@ -366,23 +370,15 @@ body {
     background-color: rgba(0, 0, 0, 0.8); /* Darken on hover */
 }
 
+
 @media (max-width: 768px) {
-    .carousel {
-        width: 95%; /* Make carousel wider on smaller screens */
+    .interactive-block {
+        max-width: 95%; /* Make interactive blocks wider on smaller screens */
+        aspect-ratio: 16/9; /* Adjust aspect ratio for mobile */
+        border-radius: 1rem;
     }
-    .section-title {
-        font-size: 2rem;
-        text-align: center; /* Center main headings on smaller screens */
-    }
-    .main-intro-paragraph {
-        text-align: center; /* Center intro paragraph on smaller screens */
-    }
-    .intro-text {
-        text-align: center; /* Center intro text on smaller screens */
-    }
-    .main-content h2,
-    .main-content h3 {
-        text-align: center; /* Center sub-headings on smaller screens */
+    .interactive-block .carousel-item img {
+        border-radius: 1rem;
     }
     .apple-card .card-body {
         text-align: center; /* Center text within cards on smaller screens */
@@ -579,76 +575,4 @@ body {
     text-align: center;
     padding-top: 2rem;
     padding-bottom: 2rem;
-}
-
-/* Shattering Text Animation */
-.shatter-text {
-    display: inline-block;
-    overflow: hidden;
-    position: relative;
-    width: 100%; /* Take full width of its container */
-    text-align: left; /* Align to the left */
-}
-
-.shatter-text .word {
-    display: inline-block; /* Changed from block to inline-block */
-    text-align: left; /* Align words to the left within the line */
-    margin-right: 0.5em; /* Space between words */
-}
-
-.shatter-text span {
-    display: inline-block;
-    opacity: 0;
-    transform: scale(0);
-    /* GSAP will handle initial positioning and animation */
-}
-
-#construction-plumbing {
-    font-size: 3.5rem; /* Larger font size for main heading */
-    font-weight: bold;
-    line-height: 1.2; /* Tighter line height */
-    margin: 1.5rem auto; /* Adjust vertical spacing */
-    color: var(--primary-text-color);
-    text-align: left; /* Left align the entire block */
-}
-
-#construction-plumbing .word {
-    display: inline-block; /* Allow words to flow on the same line */
-    text-align: left;
-    margin-right: 0.75em; /* Space between words */
-    white-space: nowrap; /* Prevent words from breaking */
-}
-
-#construction-plumbing span {
-    display: inline-block;
-    letter-spacing: 0.05rem; /* Reduce letter spacing */
-    line-height: 1.2; /* Ensure line height is consistent */
-}
-
-@media screen and (max-width: 991px) {
-    #construction-plumbing {
-        font-size: 2.5rem; /* Adjust font size for medium screens */
-    }
-    #construction-plumbing .word {
-        margin-right: 0.5em;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    #construction-plumbing {
-        font-size: 1.8rem; /* Further reduce font size for small screens */
-        text-align: center; /* Center on very small screens */
-    }
-    #construction-plumbing .word {
-        display: block; /* Force words to new lines on very small screens */
-        text-align: center;
-        margin-right: 0;
-    }
-    #construction-plumbing span {
-        font-size: 1.8rem; /* Ensure individual spans also have reduced font size */
-        letter-spacing: 0.02rem;
-    }
-    .hero-content {
-        text-align: center; /* Center hero content on very small screens */
-    }
 }
